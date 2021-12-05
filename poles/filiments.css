@@ -1,0 +1,46 @@
+:root {
+  --primaryHue: 188;
+  --hue: 188;
+
+  --influence: -1;
+
+  --locationX: 10%;
+  --locationY: 10%;
+  --gap1: 1%;
+  --gap2: 10%;
+
+  --filimentWidth: 10px;
+  --filimentHeight: 60px;
+  --filimentGap: 6px;
+}
+
+body {
+  background: var(--mediumColor);
+}
+
+room {
+  display: inline-block;
+}
+
+filiments {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+}
+
+filiment {
+  position: absolute;
+  width: var(--filimentWidth);
+  height: var(--filimentHeight);
+  transform: translateZ(0);
+  margin: 0px calc((20px - var(--filimentWidth) + 2px + var(--filimentGap)) * 2) calc(2 * (20px - var(--filimentHeight) + var(--filimentGap))) 0px;
+  background: linear-gradient(white 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: calc(var(--filimentWidth) / 2);
+}
+
+filiment.dark {
+  background: linear-gradient(rgba(00, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 100%);
+}

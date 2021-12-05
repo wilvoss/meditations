@@ -1,0 +1,56 @@
+:root {
+  --primaryHue: 354;
+
+  --paint: hsl(167, 100%, 23%);
+
+  --gradient1: radial-gradient(var(--paint) 0, var(--paint) 0.5px, var(--whiteOpaque) 1px);
+  --gradient2: radial-gradient(var(--whiteOpaque) 0, var(--whiteOpaque) 0.5px, var(--paint) 1px);
+
+  --gridColor: var(--whiteOpaque);
+
+  --gap: 10px;
+  --size: 2px;
+  --borderRadius: 0%;
+  --backgroundColor: var(--paint);
+  --borderColor: var(--paint);
+
+  --navGap: 7em;
+}
+
+html {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: none;
+  touch-action: none;
+  /* min-width: 1000px; */
+}
+
+dots {
+  position: fixed;
+  display: block;
+  margin-top: var(--navGap);
+  height: calcA(100% - var(--navGap));
+  touch-action: none;
+}
+
+dot {
+  display: block;
+  float: left;
+  width: calc(var(--size) + 2 * var(--gap));
+  height: calc(var(--size) + 2 * var(--gap));
+  background: black;
+  border-radius: var(--borderRadius);
+  line-height: 0em;
+  font-size: 0px;
+  margin: 0px;
+  touch-action: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+dot.selected {
+  background-color: var(--backgroundColor);
+  background-blend-mode: overlay;
+}

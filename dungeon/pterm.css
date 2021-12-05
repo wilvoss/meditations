@@ -1,0 +1,688 @@
+body {
+  background: #000;
+  color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+g,
+r,
+div {
+  line-height: 15px;
+  color: #ffaa00;
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+#grid,
+#interaction {
+  width: 480px;
+}
+
+#grid .rightMostCell {
+  border-color: #111;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#grid .bottomCell {
+  border-color: #111;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#grid g {
+  border-color: #111;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#grid .rightMostCell,
+#grid .bottomCell,
+#grid g {
+  width: 14px;
+  height: 14px;
+}
+
+#interaction r,
+#interaction .aR {
+  width: 12px;
+  height: 12px;
+}
+
+#interaction .empty,
+#interaction .alt {
+  width: 15px;
+  height: 15px;
+  margin: 0px;
+  border: none;
+}
+#roomTable .empty,
+#roomTable .aR {
+  width: 12px;
+  height: 12px;
+}
+#interaction .tpHighlight {
+  position: relative;
+  margin: 0px;
+  width: 12px;
+  height: 12px;
+  background: #00ff00;
+  color: #000;
+}
+#interaction .tpEndHighlight {
+  position: relative;
+  margin: 0px;
+  width: 12px;
+  height: 12px;
+  background: #ff0000;
+}
+
+#highlight {
+  color: #000;
+  width: 12px;
+  height: 12px;
+  border-color: transparent;
+  background-repeat: no-repeat;
+  background-position: top left;
+  opacity: 1;
+  color: white;
+  font-size: 12px;
+}
+#info {
+  left: 480px;
+  top: 16px;
+}
+#coor,
+#endCoor,
+#difference,
+#TPs,
+#roomInfo {
+  border: 1px solid #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+  left: 500px;
+  color: #fff;
+  font-weight: normal;
+  text-align: left;
+}
+#TPs {
+  color: #ffaa00;
+}
+#allNumbers {
+  border-color: #ffaa00;
+}
+.numberOn {
+  border-color: #ffaa00;
+}
+.numberOn a {
+  color: #000;
+  background: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.numberOn a:hover {
+  background: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.number {
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.number a {
+  border-color: #ffaa00;
+  color: #ffaa00;
+  background: #000;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+.number a:hover {
+  color: #000;
+  background: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+#roomTable .noW,
+#roomTable .h,
+#roomTable .s,
+#roomTable .la,
+#roomTable .ra,
+#roomTable .da,
+#roomTable .ua,
+#roomTable .ds,
+#roomTable .us,
+#roomTable .utp,
+#roomTable .dtp,
+#roomTable .rtp,
+#roomTable .tp1,
+#roomTable .tp2,
+#roomTable .tp3,
+#roomTable .tp4,
+#roomTable .tp5,
+#roomTable .ext,
+#roomTable .d,
+#roomTable .k,
+#roomTable .p,
+#roomTable .c1,
+#roomTable .c2,
+#roomTable .c3,
+#roomTable .sp,
+#roomTable .bl,
+#roomTable .n,
+#roomTable .traps,
+#roomTable .gt,
+#roomTable .dg,
+#roomTable .sl,
+#roomTable .st,
+#roomTable .i {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+}
+
+#roomTable .bs {
+  width: 4px;
+  height: 1px;
+  margin: 13px 4px 0px 4px;
+  background: #000;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .rs {
+  width: 1px;
+  height: 4px;
+  margin: 4px 0px 5px 13px;
+  background: #000;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .v {
+  width: 4px;
+  height: 3px;
+  border-width: 0px 1px 0px 1px;
+  margin: 13px 5px 0px 4px;
+  background: #000;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .j {
+  width: 3px;
+  height: 4px;
+  position: absolute;
+  position: absolute;
+  margin: 4px 0px 5px 13px;
+  background: #000;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .r {
+  width: 14px;
+  height: 15px;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .b {
+  width: 15px;
+  height: 14px;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .u {
+  width: 14px;
+  height: 14px;
+  border-color: #ffaa00;
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .k {
+  background: transparent url(pimages/prk.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .h {
+  background-image: url(pimages/pho.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .la {
+  background-image: url(pimages/pdl.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .ra {
+  background-image: url(pimages/pdr.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .da {
+  background-image: url(pimages/pdd.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .ua {
+  background-image: url(pimages/pdu.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .utp {
+  background-image: url(pimages/putp.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .dtp {
+  background-image: url(pimages/pdtp.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .rtp {
+  background-image: url(pimages/prtp.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .tp1 {
+  background-image: url(pimages/ptp1.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .tp2 {
+  background-image: url(pimages/ptp2.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .tp3 {
+  background-image: url(pimages/ptp3.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .tp4 {
+  background-image: url(pimages/ptp4.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .ext {
+  background-image: url(pimages/pext.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .sp {
+  background-image: url(pimages/pspin.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .bl {
+  background-image: url(pimages/pblink.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .n {
+  background-image: url(pimages/pnon.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .traps {
+  background-image: url(pimages/ptraps.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .gt {
+  background-image: url(pimages/pgt.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .dg {
+  background-image: url(pimages/pdragon.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .sl {
+  background-image: url(pimages/psl.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .st {
+  background-image: url(pimages/pstud.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .i {
+  background-image: url(pimages/pill.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .ds {
+  background-image: url(pimages/pds.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .us {
+  background-image: url(pimages/pus.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .s {
+  background-image: url(pimages/psand.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .d {
+  background-image: url(pimages/pdk.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .p {
+  background-image: url(pimages/ppit.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .c1 {
+  background-image: url(pimages/pchute1.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .c2 {
+  background-image: url(pimages/pchute2.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#roomTable .c3 {
+  background-image: url(pimages/pchute3.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+#legend .k {
+  background-image: url(pimages/prk.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .h {
+  background-image: url(pimages/pho.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .la {
+  background-image: url(pimages/pdl.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .ra {
+  background-image: url(pimages/pdr.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .da {
+  background-image: url(pimages/pdd.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .ua {
+  background-image: url(pimages/pdu.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .utp {
+  background-image: url(pimages/putp.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .dtp {
+  background-image: url(pimages/pdtp.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .rtp {
+  background-image: url(pimages/prtp.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .tp1 {
+  background-image: url(pimages/ptp1.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .tp2 {
+  background-image: url(pimages/ptp2.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .tp3 {
+  background-image: url(pimages/ptp3.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .tp4 {
+  background-image: url(pimages/ptp4.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .ext {
+  background-image: url(pimages/pext.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .sp {
+  background-image: url(pimages/pspin.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .bl {
+  background-image: url(pimages/pblink.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .n {
+  background-image: url(pimages/pnon.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .traps {
+  background-image: url(pimages/ptraps.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .gt {
+  background-image: url(pimages/pgt.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .dg {
+  background-image: url(pimages/pdragon.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .sl {
+  background-image: url(pimages/psl.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .st {
+  background-image: url(pimages/pstud.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .i {
+  background-image: url(pimages/pill.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .ds {
+  background-image: url(pimages/pds.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .us {
+  background-image: url(pimages/pus.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .s {
+  background-image: url(pimages/psand.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .d {
+  background-image: url(pimages/pdk.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .p {
+  background-image: url(pimages/ppit.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .c1 {
+  background-image: url(pimages/pchute1.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .c2 {
+  background-image: url(pimages/pchute2.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .c3 {
+  background-image: url(pimages/pchute3.gif);
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+#legend .highlight {
+  z-index: 100;
+  margin: -1px 0px 0px -1px;
+  border: 1px solid white;
+  background-color: transparent;
+  box-shadow: inset 0 0 10px blue;
+}
+#legend .j {
+  background-image: url(pimages/prdfull.gif);
+}
+#legend .bs {
+  background-image: url(pImages/pbsfull.gif);
+}
+
+#theInfoBox {
+  display: none;
+  border: 1px solid #ffaa00;
+  background: #000;
+  opacity: 0.93;
+  padding: 10px 20px 10px 10px;
+  position: absolute;
+  left: 54px;
+  top: 24px;
+  width: 419px;
+  height: 429px;
+  z-index: 600;
+  text-align: left;
+  font-size: 10px;
+  line-height: 13px;
+}
+li {
+  margin-bottom: 5px;
+}
+#interaction .theI {
+  color: #fff;
+  width: 15px;
+  height: 15px;
+}
+#theInfoBox a {
+  color: #fff;
+}
+
+#legend {
+  border: solid 1px #ffaa00;
+  background: #000;
+  z-index: 601;
+  position: absolute;
+  left: 160px;
+  top: 0px;
+  width: 131px;
+  border-width: 1px 0px 0px 1px;
+  display: none;
+}
+#legend g,
+#legend r {
+  text-align: left;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #ffaa00;
+  border-width: 0px 1px 1px 0px;
+}
+#legend r {
+  width: 110px;
+}
+#legend .theText {
+  text-align: left;
+  width: 130px;
+  height: 14px;
+}
+.altNumber {
+  color: #000;
+}
+#roomView {
+  position: absolute;
+  margin-left: 535px;
+  margin-top: 420px;
+}
+
+leftBlock,
+rightBlock {
+  background: black;
+}
+rightBlock {
+  margin-left: 103px;
+}
+#viewBackground {
+  background: none;
+}
+view {
+  margin-top: 30px;
+  height: 47px;
+  -webkit-transform: scale(1, 1) translate(4px, 0px);
+  transform: scale(1, 1) translate(4px, 0px);
+}
+#viewBackground {
+  margin-top: 18px;
+  -webkit-transform: scale(1, 1) translate(4px, 0px);
+  transform: scale(1, 1) translate(4px, 0px);
+}
+
+view .door {
+  background-image: url(viewImages/pdoor.png);
+}
+view .wall {
+  background-image: url(viewImages/pwall.png);
+}
+view .lwall,
+view .rwall,
+#row2 .lwall,
+#row2 .rwall {
+  background-image: url(viewImages/pwall.png);
+}
+view .ldoor,
+view .rdoor,
+#row2 .ldoor,
+#row2 .rdoor {
+  background-image: url(viewImages/pdoor.png);
+}
+#row2 {
+  opacity: 1;
+}
+#row2 .door,
+#row2 .wall {
+  opacity: 1;
+}
+#row2 .lwall,
+#row2 .rwall,
+#row2 .wall {
+  background: transparent url(viewImages/pwall.png) no-repeat 0px 0px;
+}
+#row2 .ldoor,
+#row2 .rdoor,
+#row2 .door {
+  background: transparent url(viewImages/pdoor.png) no-repeat 0px 0px;
+}

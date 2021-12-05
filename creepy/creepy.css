@@ -1,0 +1,66 @@
+:root {
+  --primaryHue: 298;
+  --hue: 167;
+
+  --saturation: 50%;
+  --luminosity: 50%;
+  --primarySaturation: var(--saturation);
+  --locationX: 10%;
+  --locationY: 10%;
+  --gap1: 0.15%;
+  --gap2: 10%;
+}
+body {
+  background-color: hsl(var(--primaryHue), var(--saturation), var(--luminosity));
+  background-image: none;
+  background-blend-mode: normal, luminosity;
+  cursor: none;
+  background-size: initial;
+  background-repeat: repeat;
+}
+
+creepiness {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+creepiness::-webkit-scrollbar {
+  display: none;
+}
+
+creepiness p {
+  line-height: 1.5em;
+  padding: 0px 0px 0px 1em;
+  margin: 0px;
+  width: calc(100% - 1em);
+  color: white;
+  white-space: nowrap;
+}
+creepiness p:first-of-type {
+  padding-top: 6em;
+}
+
+creepiness p:last-of-type {
+  padding-bottom: 3em;
+}
+
+creepiness p span {
+  display: block;
+  width: 140px;
+  text-align: left;
+  float: left;
+  margin-left: 1em;
+  color: var(--lightestColor);
+}
+
+creepiness p.level1,
+creepiness p.level1 span {
+  margin-left: 1em;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta content="x-content-type-options=nosniff" />
+
+    <title>Wormholes - Meditations on Interaction</title>
+
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-transluscent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
+
+    <meta name="keywords"
+      content="Wil Voss, Wormholes, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
+    <meta name="description"
+      content="A little shadow, some base, lots of rings, all animated with just the right perspective." />
+
+    <meta property="og:title" content="Wormholes" />
+    <meta property="og:site_name" content="Meditations on Interaction" />
+    <meta property="og:description"
+      content="A little shadow, some base, lots of rings, all animated with just the right perspective." />
+    <meta property="og:type" content="photo" />
+    <meta property="og:url" content="http://wilvoss.com/wormholes" />
+    <meta property="og:image" content="http://wilvoss.com/site/images/wormholes_og.jpg" />
+
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <link rel="stylesheet" href="../shared.css" media="screen" />
+    <link rel="stylesheet" href="wormholes.css" media="screen" />
+
+    <script src="wormholes-min.js"></script>
+    <script src="../shared-min.js"></script>
+    <script src="../log.js"></script>
+  </head>
+
+  <body class="glass" ondblclick="event.preventDefault(); event.stopPropagation()">
+    <clickTrack onpointerup=" draggedElement=null; placeTunnel(event); isDragging = false; "></clickTrack>
+    <skin></skin>
+    <tunnels id="tunnels">
+    </tunnels>
+    <nav onpointerup="event.stopPropagation();" onpointerdown="draggedElement=null; ">
+      <h1 onpointerdown="toggleNav(event)">
+        <title>Wormholes</title><span>controls</span>
+      </h1>
+    </nav>
+    <back onpointerup="location.href='../'"></back>
+    <controls onpointerdown="draggedElement=null; event.stopPropagation() ">
+      <p>appearance</p>
+      <control class="checkbox">
+        <label for="glassCheckbox">Glass<span id="glassValue">true</span></label>
+        <input type="checkbox" id="glassCheckbox" oninput="toggleGlass(event)" />
+      </control>
+      <control class="checkbox">
+        <label for="sphereCheckbox">Radiation<span id="sphereValue">true</span></label>
+        <input type="checkbox" id="sphereCheckbox" oninput="toggleSphere(event)" />
+      </control>
+      <control class="checkbox">
+        <label for="depthCheckbox">Deep<span id="depthValue">false</span></label>
+        <input type="checkbox" id="depthCheckbox" oninput="toggleDepth(event)" />
+      </control>
+      <control class="checkbox">
+        <label for="animateCheckbox">Oscillate<span id="animateCheckboxValue">false</span></label>
+        <input type="checkbox" id="animateCheckbox" oninput="toggleAnimation(event)" />
+      </control>
+      <p>Sandbox</p>
+      <control class="button">
+        <button onclick="clearAllTunnels()">Reset scene<span>esc</span></button>
+      </control>
+
+
+    </controls>
+    <main class="secondary">
+      <p>Click/tap to add a wormhole, move it around. Where will you go?</p>
+      <p>You can get the sense of a <a href="https://en.wikipedia.org/wiki/Wormhole" rel="noreferrer"
+          target="_blank">hole
+          in space</a> by using half dozen concentric circles, shading, animation, and inviting imagery.</p>
+      <p class="cta"><a onclick="toggleNav(event, null, true)">OPEN CONTROL PANEL</a></p>
+    </main>
+    <footer>
+      <p>
+      </p>
+    </footer>
+    <img src='../site/images/glass.png' title="This is a preloader image" />
+    <img src='../site/images/noise.png' title="This is a preloader image" />
+  </body>
+
+</html>

@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+
+:root {
+  --primaryHue: 145;
+  --mainFont: 'Dosis', sans-serif;
+}
+
+body {
+  font-family: var(--mainFont);
+  font-weight: 100;
+  /* max-width: 680px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin: 10px;
+  font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  touch-action: auto;
+  scroll-behavior: smooth;
+}
+
+button,
+select,
+option,
+input {
+  font-family: var(--mainFont);
+}
+
+[v-cloak] {
+  display: none;
+}
+
+h1 {
+  font-family: var(--mainFont);
+}
+
+h1,
+h2 {
+  margin: 20px 0px 0px;
+  line-height: 100%;
+}
+
+h2 select {
+  font-size: 90%;
+  font-weight: 600;
+  margin-bottom: 0px;
+  border-radius: 4px;
+}
+
+h3 {
+  margin: 10px 0px 20px;
+  padding: 0px;
+  color: gray;
+  font-weight: 100;
+  display: inline-block;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 100%;
+  margin: 0px 0px 20px;
+  padding: 0px;
+  color: darkblue;
+}
+
+h4:first-of-type {
+  margin-bottom: 10px;
+  color: darkgrey;
+}
+
+h4 span {
+  color: darkred;
+  padding-left: 20px;
+}
+
+button {
+  /* display: none; */
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 2px 0px;
+  float: left;
+  height: auto;
+  margin-right: 20px;
+  margin-top: -4px;
+  width: 100px;
+  border-radius: 4px;
+  border: 1px solid;
+  outline: none;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+  h4 {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+  h4 span {
+    display: block;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-top: 4px;
+  }
+
+  button {
+    display: block;
+    margin-top: -2px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 10px;
+    height: 40px;
+    font-size: 100%;
+  }
+  h2 select {
+    margin-bottom: 10px;
+  }
+}
+
+loader {
+  display: block;
+  width: 100%;
+}
+
+.loaded loader {
+  display: none;
+}
+
+main {
+  padding-bottom: 20px;
+}
+
+counties {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  clear: both;
+}
+
+p {
+  color: rgb(206, 147, 0);
+  margin: 0px;
+  padding: 0px;
+  height: 1px;
+  white-space: nowrap;
+  background-color: rgb(255, 255, 234);
+  overflow: hidden;
+  user-select: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+p.headers {
+  background: none;
+  color: rgb(102, 75, 75);
+  box-shadow: none;
+  border: none;
+  font-style: italic;
+  display: none;
+}
+
+.expandAll p.headers {
+  display: block;
+  border: none;
+}
+
+/* p:hover + p, */
+p:hover,
+.expandAll p {
+  display: block;
+  padding: 1px 10px;
+  height: 20px;
+}
+.expandAll p {
+  border-radius: 0px 0px 4px 4px;
+  border-bottom: 1px solid rgb(153, 153, 153);
+}
+
+p.winner:hover,
+.expandAll p.winner {
+  padding: 4px 10px;
+  height: 20px;
+}
+.expandAll p.first {
+  margin-top: 10px;
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: none;
+}
+
+p.winner {
+  color: darkblue;
+  font-weight: 600;
+  background-color: rgb(0, 0, 255);
+}
+
+p.republican.winner {
+  display: block;
+  background-color: rgb(255, 0, 0);
+  color: darkred;
+}
+
+p.winner:hover,
+.expandAll p.winner {
+  color: darkblue;
+  font-weight: 600;
+  background-color: #8ce2ff;
+}
+
+p.republican.winner:hover,
+.expandAll p.republican.winner {
+  display: block;
+  background-color: lightpink;
+  color: darkred;
+}
+
+p.loser {
+  display: none;
+  color: #777;
+  background-color: #e1e1e1;
+}
+
+.expandAll p.loser {
+  display: block;
+}
+p span {
+  display: inline-block;
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+candidatevotes,
+state,
+county,
+candidate,
+percentofvotes,
+totalvotes {
+  display: inline-block;
+  width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+candidatevotes {
+  width: 80px;
+}
+state {
+  width: 140px;
+}
+county {
+  width: 140px;
+}
+candidate {
+  width: 70px;
+}
+percentofvotes {
+  width: 60px;
+}
+totalvotes {
+  width: 140px;
+}
+
+p span.show {
+  color: transparent;
+}
+
+p.first {
+  margin: 0px;
+}
+
+.expandAll p:first-of-type {
+  margin-top: 0px;
+}
+
+p.first span.show {
+  color: inherit;
+}
+
+footer {
+  display: block;
+  padding: 4px 0px;
+  font-size: 90%;
+}

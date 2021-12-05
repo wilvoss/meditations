@@ -1,0 +1,52 @@
+        body
+        {
+        	background: #000;
+            color: #fff;
+        }
+        #gridTable .rightMostCell
+        {
+            border-color: #111;
+        }
+        #gridTable .bottomCell
+        {
+            border-color: #111;
+        }
+        #gridTable div
+        {
+            border-color: #111;
+        }
+        #highlight
+        {
+            border-color: #00FF0E;
+        }
+        #coor
+        {
+            border-color: #111;
+        }
+        .numberOn a{
+        	color: #fff;
+        	background: #111;
+		}        
+        .numberOn a:hover{
+        	background: #111;
+		}        
+        .number{
+        	border-color: #222;
+        }
+        .number a{
+        	color: #fff;
+        	background: #000;
+        }
+        .number a:hover{
+        	background: #111;
+        }
+    		#roomTable .bs{background: #000; border-color: #fff;}
+    		#roomTable .rs{background: #000; border-color: #fff;}
+    		#roomTable .bd{background: #000; border-color: #fff;}
+    		#roomTable .rd{background: #000; border-color: #fff;}
+    		#roomTable .rw{border-color: #fff;}
+    		#roomTable .bw{border-color: #fff;}
+    		#roomTable .brw{border-color: #fff;}
+    		#roomTable .rk{background: #222}
+    		#roomTable .ho{background-color: transparent;}
+	

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta content="x-content-type-options=nosniff" />
+
+    <title>2020 Election Results - Meditations on Interaction</title>
+
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-transluscent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="keywords"
+      content="Wil Voss, Playground, Election, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
+    <meta name="description" content="2020 Presidential Election Results Sorted by County Vote Size" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="Election" />
+    <meta property="og:site_name" content="Meditations on Interaction" />
+    <meta property="og:description" content="2020 Presidential Election Results Sorted by County Vote Size" />
+    <meta property="og:type" content="photo" />
+    <meta property="og:url" content="http://wilvoss.com/2020election" />
+    <meta property="og:image" content="http://wilvoss.com/site/images/election_og.jpg" />
+
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <link rel="stylesheet" href="election.css" media="screen" />
+
+  </head>
+
+  <body>
+    <app id="app" :class="{loaded: loaded}">
+      <h1>
+        2020 Election Results by County Vote Size
+      </h1>
+      <main :class="{expandAll: expandAll}" v-cloak>
+        <h2>County totals between
+          <select aria- v-model="lowerLimit" @change="FilterByLowerAndUpperLimits()">
+            <option>0</option>
+            <option :disabled="upperLimit <= 50000" value="50000">50,000</option>
+            <option :disabled="upperLimit <= 100000" value="100000">100,000</option>
+            <option :disabled="upperLimit <= 200000" value="200000">200,000</option>
+            <option :disabled="upperLimit <= 300000" value="300000">300,000</option>
+            <option :disabled="upperLimit <= 400000" value="400000">400,000</option>
+            <option :disabled="upperLimit <= 500000" value="500000">500,000</option>
+            <option :disabled="upperLimit <= 600000" value="600000">600,000</option>
+            <option :disabled="upperLimit <= 700000" value="700000">700,000</option>
+            <option :disabled="upperLimit <= 800000" value="800000">800,000</option>
+            <option :disabled="upperLimit <= 900000" value="900000">900,000</option>
+          </select>
+          &
+          <select v-model="upperLimit" @change="FilterByLowerAndUpperLimits()">
+            <option :disabled="lowerLimit >= 50000" value="50000">50,000</option>
+            <option :disabled="lowerLimit >= 100000" value="100000">100,000</option>
+            <option :disabled="lowerLimit >= 200000" value="200000">200,000</option>
+            <option :disabled="lowerLimit >= 300000" value="300000">300,000</option>
+            <option :disabled="lowerLimit >= 400000" value="400000">400,000</option>
+            <option :disabled="lowerLimit >= 500000" value="500000">500,000</option>
+            <option :disabled="lowerLimit >= 600000" value="600000">600,000</option>
+            <option :disabled="lowerLimit >= 700000" value="700000">700,000</option>
+            <option :disabled="lowerLimit >= 800000" value="800000">800,000</option>
+            <option :disabled="lowerLimit >= 900000" value="900000">900,000</option>
+            <option value="5000000">5,000,000</option>
+          </select>
+        </h2>
+        <h4 style="font-weight: 100" v-cloak>Total: {{Intl.NumberFormat().format(countedVotes)}} (sans "Other")
+        </h4>
+        <h4>Biden -
+          <button @click="ToggleCounties">{{expandAll ? 'Collapse' : 'Expand'}}</button>
+          {{Intl.NumberFormat().format(totalElectionCountForBiden)}}
+          ({{Math.round(1000 * (totalElectionCountForBiden / (countedVotes))) / 10}}%)
+          <span>Trump -
+            {{Intl.NumberFormat().format(totalElectionCountForTrump)}}
+            ({{Math.round(1000 * (totalElectionCountForTrump / (countedVotes))) / 10}}%)
+          </span>
+        </h4>
+        <loader>Loading...</loader>
+        <counties>
+          <p class="headers">
+            <candidatevotes>Votes for</candidatevotes>
+            <county>County</county>
+            <state>State</state>
+            <candidate>Candidate</candidate>
+            <percentofvotes>Percent</percentofvotes>
+            <totalvotes>Total votes </totalvotes>
+
+          </p>
+          <p :id="row.id" @click="SetCurrentCounty" :context="{row}"
+            :class="{expanded: row.expanded, republican: row.party=='REPUBLICAN', democrat: row.party=='DEMOCRAT', winner: row.winner, loser: row.loser, first: row.firstCandidateListed}"
+            v-for="(row, index) in electionResultsByTotalVotes">
+            <candidatevotes>{{Intl.NumberFormat().format(row.candidatevo)}}</candidatevotes>
+            <county>{{row.county_name}} </county>
+            <state>{{row.state}}</state>
+            <candidate>{{row.candidate}} </candidate>
+            <percentofvotes>{{row.percentofvo + '%' }}</percentofvotes>
+            <totalvotes>{{Intl.NumberFormat().format(row.totalvotes)}}</totalvotes>
+          </p>
+        </counties>
+      </main>
+      <footer>
+        Data <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/VOQCHQ"
+          target="_blank">MIT Election Lab</a>. Design & code <a href="/">Wil Voss</a>.
+      </footer>
+    </app>
+    <script id="vue-framework" src="vue-min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="election-min.js"></script>
+
+  </body>
+
+</html>
