@@ -53,6 +53,7 @@ body {
   overflow: hidden;
   background-size: cover;
   touch-action: none;
+  cursor: crosshair;
 }
 
 body > img {

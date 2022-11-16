@@ -15,32 +15,41 @@ var roundedCorners = false;
 var multiplier = 80;
 var query;
 var widthChanger;
+var gridSize = 80;
 
 function init() {
   xUnits = window.innerWidth / multiplier - 1;
+  var inc = 0;
   r.style.setProperty('--gap', xUnits + 'px');
-  for (var i = 0; i < 1320; i++) {
-    var dot = document.createElement('dot');
-    dot.id = 'dot' + (i + 1);
-    dot.title = dot.id;
-    if (i < 1320) {
-      dot.style.backgroundImage = "url('images/" + dot.id + ".jpg')";
-    }
-    dot.onpointerenter = function () {
-      if (mouseIsDown) {
-        if (eraser) {
-          this.className = '';
-        } else {
-          this.className = 'selected';
+  for (let row = 0; row < gridSize / 2; row++) {
+    for (let col = 0; col < gridSize / 2; col++) {
+      var dot = document.createElement('dot');
+      dot.id = 'row' + row + 'col' + col;
+      dot.title = dot.id;
+      console.log(inc);
+      // if (i < 80) {
+      dot.style.backgroundSize = window.innerWidth + 'px';
+      dot.style.backgroundPosition = -col * xUnits * 2 + 'px ' + (-row * xUnits * 2 + 'px');
+      // dot.style.backgroundHeight = 32 + 'px';
+      //dot.style.backgroundImage = "url('images/" + dot.id + ".jpg')";
+      // }
+
+      dot.onpointerenter = function () {
+        if (mouseIsDown) {
+          if (eraser) {
+            this.className = '';
+          } else {
+            this.className = 'selected';
+          }
         }
-      }
-    };
-    dot.onpointerleave = function () {};
-    dot.onpointerdown = function () {
-      eraser = this.className == 'selected';
-      this.className = this.className == 'selected' ? '' : 'selected';
-    };
-    dots.push(dot);
+      };
+      dot.onpointerleave = function () {};
+      dot.onpointerdown = function () {
+        eraser = this.className == 'selected';
+        this.className = this.className == 'selected' ? '' : 'selected';
+      };
+      dots.push(dot);
+    }
   }
   applyDots();
   window.setTimeout(loadQuery, 200);
@@ -65,12 +74,12 @@ function loadQuery() {
 
 function resizeWindowWidth(value) {
   let temp = multiplier / value;
-  if (multiplier >= 80) {
+  if (multiplier >= gridSize) {
     multiplier = multiplier / value;
     xUnits = window.innerWidth / multiplier - 1;
     r.style.setProperty('--gap', xUnits + 'px');
-    document.getElementById('doubleButton').disabled = multiplier <= 80;
   }
+  document.getElementById('doubleButton').disabled = multiplier <= gridSize;
 }
 
 function compressDots() {
@@ -195,7 +204,9 @@ function keyDown(e) {
       saveQuery();
       break;
     case 'd':
-      resizeWindowWidth(2);
+      if (multiplier > 80) {
+        resizeWindowWidth(2);
+      }
       break;
     case 'h':
       resizeWindowWidth(0.5);

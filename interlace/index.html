@@ -41,14 +41,15 @@
 
   <body>
     <dots></dots>
-    <nav>
-      <h1 onpointerdown="toggleNav(event)">
-        <title>Interlace</title><span>Controls</span>
+    <nav onpointerdown="toggleNav(event)">
+      <h1>
+        <title>Interlace</title>
+        <span>settings</span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
     <controls onpointerdown="event.stopPropagation()">
-      <p>Settings</p>
+      <!-- <p>Settings</p> -->
       <control class="button">
         <button onclick="resizeWindowWidth(2)" id="doubleButton" disabled>Double<span>d</span></button>
       </control>

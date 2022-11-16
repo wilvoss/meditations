@@ -39,15 +39,15 @@
   </head>
 
   <body onpointerdown="pointerDown = true;event.stopPropagation();" onpointerup='pointerDown = false'>
-    <nav onpointerup="event.stopPropagation();">
-      <h1 onpointerdown="toggleNav(event)">
+    <nav onpointerup="event.stopPropagation();" onpointerdown="toggleNav(event)">
+      <h1>
         <title>Poles</title>
-        <span>controls</span>
+        <span>settings</span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
     <controls onpointerdown="event.stopPropagation()">
-      <p>appearance</p>
+      <!-- <p>appearance</p> -->
       <control>
         <label for="influenceRange">Polarity<span>-1</span></label>
         <input type="range" id="influenceRange" min="-7.5" max="7.5" value="-1"

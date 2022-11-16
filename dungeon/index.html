@@ -105,14 +105,15 @@
     </head>
 
     <body onload="restorePreviousSession();">
-        <nav>
-            <h1 onpointerdown="toggleNav(event)">
-                <title>Dungeon</title><span id="uberControlsSpan">controls</span>
+        <nav onpointerdown="toggleNav(event)">
+            <h1>
+                <title>Dungeon</title>
+                <span id="uberControlsSpan">settings</span>
             </h1>
         </nav>
         <back onpointerup="location.href='../'"></back>
         <controls id="uberControls" onpointerdown="event.stopPropagation()">
-            <p>appearance</p>
+            <!-- <p>appearance</p> -->
             <!-- <control class="button">
                 <button onclick="swapTheme('');">White theme <span>W</span></button>
             </control>
@@ -128,7 +129,7 @@
             <control class="button">
                 <button onclick="toggleLegend();">Toggle legend<span>L</span></button>
             </control>
-            <p>Sandbox</p>
+            <!-- <p>Sandbox</p> -->
             <control class="button">
                 <button onclick="toggleInfo();">Toggle info<span>I</span></button>
             </control>

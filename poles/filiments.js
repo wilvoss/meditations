@@ -51,18 +51,18 @@ function updateFiliments(clean = false, _influence) {
   if (_influence != undefined) {
     influence = _influence;
   }
-  if (pointerDown || clean) {
-    width = Number(r.style.getPropertyValue('--filimentWidth').replace('px', ''));
+  //if (pointerDown || clean) {
+  width = Number(r.style.getPropertyValue('--filimentWidth').replace('px', ''));
 
-    for (let x = 0; x < allFiliments.length; x++) {
-      const filiment = allFiliments[x];
-      const wx = Number(filiment.offsetLeft + width - tempX - filiment.clientWidth / 2);
-      const wy = Number(filiment.offsetTop - tempY + filiment.clientHeight / 2);
-      const deg = influence * (useASinH ? Math.asinh(wx, wy) * 100 : Math.atan2(wx, wy) * 100);
-      const transform = 'rotate(' + deg + 'deg)';
-      filiment.storedTransform = transform;
-    }
+  for (let x = 0; x < allFiliments.length; x++) {
+    const filiment = allFiliments[x];
+    const wx = Number(filiment.offsetLeft + width - tempX - filiment.clientWidth / 2);
+    const wy = Number(filiment.offsetTop - tempY + filiment.clientHeight / 2);
+    const deg = influence * (useASinH ? Math.asinh(wx, wy) * 100 : Math.atan2(wx, wy) * 100);
+    const transform = 'rotate(' + deg + 'deg)';
+    filiment.storedTransform = transform;
   }
+  //}
   applyTransforms();
 }
 

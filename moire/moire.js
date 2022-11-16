@@ -135,6 +135,7 @@ function GetMouseXY(a) {
 
   dragDegrees();
   baselineY = tempY;
+  baselineX = tempX;
 
   return (mouseDetected = true);
 }
@@ -142,18 +143,22 @@ function GetMouseXY(a) {
 function beginDragging(a) {
   a.stopPropagation();
   baselineY = a.clientY;
+  baselineX = a.clientX;
   isDragging = true;
 }
 
 function dragDegrees() {
   if (isDragging && currentLayer != null) {
+    const deltaX = (tempX - baselineX) / 5;
     const deltaY = (tempY - baselineY) / 5;
+    const degDelta = deltaX * deltaX > deltaY * deltaY ? deltaX : deltaY;
     const degProperty = '--' + currentLayer.id.replace('grid', '') + 'Deg';
 
     var selectedInput = currentLayer.getElementsByTagName('input')[0];
-    var newValue = Number(selectedInput.value) + Number(deltaY);
+    var newValue = Number(selectedInput.value) + Number(degDelta);
     selectedInput.value = newValue;
     baselineY = tempY;
+    baselineX = tempX;
     updateSpecialValue(selectedInput, degProperty, '°');
   }
 }

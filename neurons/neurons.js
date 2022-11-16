@@ -34,7 +34,7 @@ function addNeurons() {
       let num = getRandomInt(0, classes.length);
       neuron.className = classes[num];
       neuron.originalClassName = neuron.className;
-      neuron.onclick = changeNeuron;
+      neuron.onmousedown = changeNeuron;
       let nx = x * width;
       let ny = z * width;
       neuron.storedStyleTransform = 'translate(' + nx + 'px, ' + ny + 'px)';
@@ -51,11 +51,22 @@ function applyNeurons() {
     neuron.style.transform = neuron.storedStyleTransform;
     brain.appendChild(neuron);
   }
-  neurons = [];
+  //neurons = [];
 }
 
 function resetNeurons() {
-  document.location.href = document.location.href;
+  neurons.forEach((neuron) => {
+    if (neuron.className == 'neuron') {
+      changeNeuron({ currentTarget: neuron });
+    }
+  });
+  brain = document.getElementsByTagName('brain')[0];
+  while (brain.firstChild) {
+    brain.removeChild(brain.firstChild);
+  }
+  neurons = [];
+  addNeurons();
+  return;
 }
 
 function addLine(first, second) {

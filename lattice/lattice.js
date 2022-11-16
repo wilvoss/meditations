@@ -19,13 +19,13 @@ var previousY = 0;
 var tempX = window.innerWidth / 2;
 var tempY = window.innerHeight / 2;
 var threadsInterval;
-var influence = -1;
 var pointerDown = false;
 var useASinH = false;
 var width = 10;
 var useDark = false;
 var distance = 400;
 var contracting = false;
+var contracted = false;
 var threadsMoving = false;
 var mylatesttap;
 
@@ -43,15 +43,18 @@ function addThreads() {
   document.getElementById('glowValue').innerHTML = '10px';
   setStyleVar('--glow', '10px');
   // }
-  for (let x = 0; x < 4; x++) {
+  for (let x = 1; x < 5; x++) {
     const fabric = new FabricObject({});
-    fabric.id = 'fabric' + x;
+    fabric.id = 'fabric' + parseInt(x - 1);
     let threadCount = window.innerWidth / (getMobileOperatingSystem() === 'unknown' ? 7 : 7);
     for (let z = 0; z < threadCount; z++) {
       const thread = document.createElement('canvas');
       const ratio = window.innerWidth / window.innerHeight;
+      var size = 100 + x * 50 + getRandomInt(1, 50);
       thread.style.left = getRandomInt(-distance * ratio, window.innerWidth + distance) + 'px';
       thread.style.top = getRandomInt(-distance * ratio, window.innerHeight + distance) + 'px';
+      thread.style.width = size + 'px';
+      thread.style.height = size + 'px';
       thread.style.zIndex = x;
       fabric.threads.push(thread);
     }
@@ -112,6 +115,7 @@ function doubletap(event) {
   var now = new Date().getTime();
   var timesince = now - mylatesttap;
   if (timesince < 600 && timesince > 0) {
+    contracted = !contracted;
     updateThreads(event);
   } else {
     // too much time to be a doubletap
@@ -187,6 +191,7 @@ function trackTouch(event) {
 function pointerMove(a) {
   tempX = a.clientX;
   tempY = a.clientY;
+
   if (!threadsMoving) {
     updateFabrics();
   }

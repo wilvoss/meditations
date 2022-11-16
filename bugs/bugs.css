@@ -2,8 +2,8 @@
   --primaryHue: 247;
   --hue: 167;
 
-  --saturation: 20%;
-  --luminosity: 20%;
+  --saturation: 30%;
+  --luminosity: 30%;
   --primarySaturation: var(--saturation);
   --locationX: 10%;
   --locationY: 10%;

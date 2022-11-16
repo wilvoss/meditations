@@ -17,13 +17,12 @@ body {
   background-image: var(--image1), var(--image);
   background-blend-mode: normal, luminosity;
   cursor: none;
-  background-size: initial;
-  background-repeat: repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   touch-action: none;
 }
 
 controls,
-main,
-nav {
+main {
   cursor: default;
 }

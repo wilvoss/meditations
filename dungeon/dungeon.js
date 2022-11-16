@@ -45,6 +45,7 @@ var tpH = 'tpHighlight';
 var aR = 'aR';
 var scaleFactor = 1;
 var isFNPressed = false;
+var currentTheme = '';
 
 var allLevels = new Array(dc(level1), dc(level2), dc(level3), dc(level4), dc(level5), dc(level6), dc(level7), dc(level8), dc(level9), dc(level10), dc(level11), dc(level12), dc(level13), dc(level14), dc(level15), dc(level16));
 function fullRoomView() {
@@ -900,9 +901,11 @@ function clearCoor() {
 }
 function swapTheme(theme) {
   if (theme == '') {
+    currentTheme = 'normal';
     document.getElementById('normal').className = 'numberOn';
     document.getElementById('pterm').className = 'number';
   } else if (theme == 'pterm') {
+    currentTheme = 'pterm';
     document.getElementById('normal').className = 'number';
     document.getElementById('pterm').className = 'numberOn';
   }
@@ -929,12 +932,18 @@ function swapTheme(theme) {
     tOS.innerHTML = '';
     theOldTP = null;
   }
+
   if (theme != null && theme != '') document.getElementById('theme').href = theme + '.css';
-  else document.getElementById('theme').href = null;
+  else document.getElementById('theme').href = '';
   clearCoor();
   roomTable.css('opacity', '1');
   createCookie('theme', theme, 5000);
-  if (currentSelect != undefined) tM(currentSelect);
+
+  window.setTimeout(function () {
+    if (currentSelect != undefined) tM(currentSelect, true);
+  }, 100);
+
+  // insert fix for character position
 }
 function restorePreviousSession() {
   init();
@@ -1250,10 +1259,14 @@ function highlightLegend() {
   backgroundView = $('#viewBackground');
   clearLegendHighlight();
   roomInfo.innerHTML = '';
-
-  backgroundView.css('background-image', 'url(viewImages/floor.png');
+  if (currentTheme == 'normal') {
+    backgroundView.css('background-image', 'url(viewImages/floor.png');
+  } else {
+    backgroundView.css('background-image', '');
+  }
 
   $('#stairsButton').css('display', 'none');
+  let waterfound = false;
   for (var i = 0; i < currentRoomContents.length; i++) {
     for (var z = 0; z < theLegendGs.length; z++) {
       if (currentRoomContents[i] != '' && (currentRoomContents[i] == theLegendGs[z].className || (currentRoomContents[i].indexOf('tp') != -1 && theLegendGs[z].className.indexOf('tp') == 0))) {
@@ -1263,12 +1276,15 @@ function highlightLegend() {
         }
         roomInfo.innerHTML += theLegendDivs[z].innerHTML.trim() + '</br>';
         theLegendDivs[z].className = ' highlight';
-        if (currentRoomContents[i].indexOf('h') != -1 && theme == 'normal') {
-          backgroundView.css('background-image', 'url(viewImages/floor_with_water.png');
-        }
+        waterfound = currentRoomContents[i].indexOf('h') != -1 && currentTheme == 'normal';
+
+        break;
+      }
+      if (waterfound) {
         break;
       }
     }
+    backgroundView.css('background-image', waterfound ? 'url(viewImages/floor_with_water.png' : '');
   }
   roomInfo.innerHTML = roomInfo.innerHTML == '' ? '</br></br></br>' : roomInfo.innerHTML;
 }

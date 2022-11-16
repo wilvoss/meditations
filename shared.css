@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=block');
 
 :root {
   --gap: 5px;
@@ -262,7 +262,7 @@ footer:hover button.revealed:hover {
 }
 
 footer button.hidden:hover {
-  color: var(--lighterColor);
+  color: var(--lightestColor);
 }
 footer:hover button.revealed:hover {
   color: var(--whiteOpaque);
@@ -283,9 +283,9 @@ footer.mobile button:first-of-type {
 }
 
 footer.mobile button::after {
-  content: '❭';
+  content: '❯';
   display: block;
-  padding-right: 0.75em;
+  padding-right: 1em;
   padding-left: 0.5em;
   float: right;
 }
@@ -296,9 +296,9 @@ footer.mobile button:first-of-type::after {
 }
 
 footer.mobile button:first-of-type::before {
-  content: '❬';
+  content: '❮';
   display: block;
-  padding-left: 0.75em;
+  padding-left: 1em;
   padding-right: 0.5em;
   float: left;
 }
@@ -348,7 +348,7 @@ nav {
   max-height: 0em;
   overflow: auto;
   box-shadow: 0px 5px 10px var(--blackSemiTransparent);
-
+  cursor: default;
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -364,6 +364,7 @@ nav {
   z-index: 1000001;
   box-shadow: none;
   overflow: hidden;
+  cursor: pointer;
 }
 
 controls::-webkit-scrollbar {
@@ -492,7 +493,7 @@ control {
   display: block;
   margin: 0 0 0.25em 0;
   padding: 1em 1em;
-  max-width: 18em;
+  /* max-width: 18em; */
   background: var(--mediumDarkColor);
   color: var(--whiteOpaque);
   border-radius: var(--innerCorners);
@@ -504,6 +505,14 @@ control {
 
 controls p:first-of-type {
   margin-top: 0.5em;
+}
+
+controls control:first-of-type {
+  margin-top: 1.75em;
+}
+
+controls p:first-of-type + control:first-of-type {
+  margin-top: 0px;
 }
 
 control.sub {

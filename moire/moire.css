@@ -52,6 +52,11 @@ body {
   background-position: left top;
   background-repeat: no-repeat;
   touch-action: none;
+  cursor: grab;
+}
+
+body:active {
+  cursor: grabbing;
 }
 
 controls {

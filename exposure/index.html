@@ -39,10 +39,10 @@
   </head>
 
   <body onpointerdown="pointerDown = true;event.stopPropagation();" onpointerup='pointerDown = false'>
-    <nav onpointerup="event.stopPropagation();">
-      <h1 onpointerdown="toggleNav(event)">
+    <nav onpointerup="event.stopPropagation();" onpointerdown="toggleNav(event)">
+      <h1>
         <title>exposure</title>
-        <span>controls</span>
+        <span>settings</span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>

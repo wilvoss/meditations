@@ -51,6 +51,7 @@
         width: 100%;
         height: 100%;
         touch-action: none;
+        cursor: crosshair;
       }
 
       .blah {
@@ -109,9 +110,10 @@
   </head>
 
   <body>
-    <nav>
-      <h1 onpointerdown="toggleNav(event)">
-        <title>Particles</title><span>Controls</span>
+    <nav onpointerdown="toggleNav(event)">
+      <h1>
+        <title>Particles</title>
+        <span>settings</span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
@@ -126,7 +128,7 @@
             <control class="button">
               <button onclick="UsePreset('champagne')">Champagne</button>
             </control> -->
-      <p>Settings</p>
+      <!-- <p>Appearance</p> -->
       <control class="button">
         <button onclick="FlipDirection()">Change direction<span>D</span></button>
       </control>
@@ -151,11 +153,11 @@
       <control class="button">
         <button onclick="BumpSize()">Cycle size<span>1 - 9</span></button>
       </control>
-      <control class="checkbox">
+      <!-- <control class="checkbox">
         <label for="mouseCheckbox">Follow mouse<span id="mouseCheckboxLabel">true</span></label>
         <input type="checkbox" id="mouseCheckbox" checked="false"
           oninput="fixed = !fixed; document.getElementById('mouseCheckboxLabel').innerHTML=!fixed" />
-      </control>
+      </control> -->
     </controls>
     <footer>
       <p>

@@ -43,14 +43,15 @@
       <grid class="cGrid"></grid>
       <grid class="dGrid"></grid>
     </grids>
-    <nav>
-      <h1 onpointerdown="toggleNav(event)">
-        <title>Moiré</title><span>Controls</span>
+    <nav onpointerdown="toggleNav(event)">
+      <h1>
+        <title>Moiré</title>
+        <span>settings</span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
     <controls onpointerdown="event.stopPropagation()">
-      <p>Appearance</p>
+      <!-- <p>Appearance</p> -->
       <control id="a" value="on" type="radio">
         <label for="aDegreeRange" onpointerup='selectLayer(this.parentNode)'>Layer 1<span>0°</span></label>
         <input type="range" id="aDegreeRange" min="-1" max="360" value="0"
@@ -130,7 +131,7 @@
         </control>
 
       </control>
-      <p>Sandbox</p>
+      <!-- <p>Sandbox</p> -->
       <!-- <control class="checkbox">
         <label for="imageCheckbox">Image<span>hidden</span></label>
         <input type="checkbox" id="imageCheckbox" oninput="updateSpecialValue(this, '--image')" />

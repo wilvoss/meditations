@@ -43,6 +43,7 @@ var mouseDetected = false,
   toggleCommands = GetById('toggleCommands'),
   header = GetById('header'),
   elementCount = 0,
+  optionKeyPressed = false,
   currentPreset = '';
 
 if (iOS) {
@@ -114,7 +115,7 @@ function StartMagic() {
   wandDiv.style.position = 'absolute';
   wandDiv.style.top = '0px';
   wandDiv.style.left = '0px';
-  wandDiv.style.zIndex = '30000000';
+  // wandDiv.style.zIndex = '30000000';
   wandDiv.style.msTouchAction = 'none';
   wandDiv.style.pointerEvents = 'none';
   wandDiv.style.userSelect = 'none';
@@ -122,8 +123,14 @@ function StartMagic() {
   document.body.insertBefore(wandDiv, document.body.firstChild);
   AddCss('.particle {position: absolute; background-size: 100%;background-repeat: no-repeat;backface-visibility: hidden;}');
 
+  document.onkeydown = function (a) {
+    a = window.event || a;
+    optionKeyPressed = a.altKey;
+  };
+
   document.onkeyup = function (a) {
     a = window.event || a;
+    optionKeyPressed = a.altKey;
     switch (a.keyCode) {
       case 27:
         FlipOptions();
@@ -440,18 +447,19 @@ function DisplayParticle() {
       context.arc(e, e, b / 2, 0, Math.PI * 2, true);
       context.closePath();
       context.fill();
+
       oldTempX = tempX;
       oldTempY = tempY;
-      //d = 0.2;
       d = 0.25 + Math.random() * 0.25;
       f = e = 0;
       if (spatter) e = Math.floor(Math.random() * 20 * sizeFactor * spreadFactor);
       if (spatter) f = Math.floor(Math.random() * 20 * sizeFactor * spreadFactor);
       element.style.opacity = d.toFixed(2);
       const leftOffset = fixed ? 380 : tempX;
-      const left = leftOffset - element.offsetWidth / 2 + e + 'px';
-      const topOffset = fixed ? window.innerHeight / 2 : tempY;
-      const top = topOffset - element.offsetHeight / 2 + f + 'px';
+      let divider = spatter ? 1 : 2;
+      const left = leftOffset - element.offsetWidth / divider + e + 'px';
+      const topOffset = fixed ? window.innerHeight / divider : tempY;
+      const top = topOffset - element.offsetHeight / divider + f + 'px';
 
       element.style.left = left;
       element.style.top = top;
@@ -495,7 +503,7 @@ function DisplayParticle() {
           element.hasBeenAdded = true;
           freeCanvases.push(element);
         };
-      h = isStain ? window.setTimeout(MoveMe, 5e3) : window.setTimeout(MoveMe, 1);
+      h = isStain ? window.setTimeout(MoveMe, 5e3) : window.setTimeout(MoveMe, 5);
     })();
   }
 }

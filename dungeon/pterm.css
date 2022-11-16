@@ -624,9 +624,11 @@ li {
   color: #000;
 }
 #roomView {
+  border: 1px solid;
   position: absolute;
   margin-left: 535px;
-  margin-top: 420px;
+  margin-top: 190px;
+  border-radius: 0px;
 }
 
 leftBlock,
@@ -640,10 +642,10 @@ rightBlock {
   background: none;
 }
 view {
-  margin-top: 30px;
+  margin-top: 48px;
   height: 47px;
-  -webkit-transform: scale(1, 1) translate(4px, 0px);
-  transform: scale(1, 1) translate(4px, 0px);
+  -webkit-transform: scale(1, 1) translate(3px, 0px);
+  transform: scale(1, 1) translate(3px, 0px);
 }
 #viewBackground {
   margin-top: 18px;

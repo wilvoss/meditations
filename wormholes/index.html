@@ -40,14 +40,15 @@
     <skin></skin>
     <tunnels id="tunnels">
     </tunnels>
-    <nav onpointerup="event.stopPropagation();" onpointerdown="draggedElement=null; ">
-      <h1 onpointerdown="toggleNav(event)">
-        <title>Wormholes</title><span>controls</span>
+    <nav onpointerup="event.stopPropagation();" onpointerdown="draggedElement=null; toggleNav(event)">
+      <h1>
+        <title>Wormholes</title>
+        <span>settings</span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
     <controls onpointerdown="draggedElement=null; event.stopPropagation() ">
-      <p>appearance</p>
+      <!-- <p>appearance</p> -->
       <control class="checkbox">
         <label for="glassCheckbox">Glass<span id="glassValue">true</span></label>
         <input type="checkbox" id="glassCheckbox" oninput="toggleGlass(event)" />
@@ -64,7 +65,7 @@
         <label for="animateCheckbox">Oscillate<span id="animateCheckboxValue">false</span></label>
         <input type="checkbox" id="animateCheckbox" oninput="toggleAnimation(event)" />
       </control>
-      <p>Sandbox</p>
+      <!-- <p>Sandbox</p> -->
       <control class="button">
         <button onclick="clearAllTunnels()">Reset scene<span>esc</span></button>
       </control>
