@@ -37,6 +37,10 @@ dots {
   touch-action: none;
 }
 
+dots::-webkit-scrollbar {
+  width: 0 !important;
+}
+
 dot {
   display: block;
   float: left;
