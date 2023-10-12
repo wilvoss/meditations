@@ -24,8 +24,10 @@ var projects = [
 ];
 
 function toggleNav(e, value, closeMain = false) {
-  e.stopPropagation();
-  e.preventDefault();
+  if (e !== undefined && e !== null) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
 
   if (closeMain) {
     toggleMain(e);
@@ -34,11 +36,9 @@ function toggleNav(e, value, closeMain = false) {
   element = document.getElementsByTagName('controls')[0];
   nav = document.getElementsByTagName('nav')[0];
   if (value != undefined && value != null) {
-    e.stopPropagation();
     element.className = value ? 'open' : '';
     nav.className = value ? 'open' : '';
   } else {
-    e.stopPropagation();
     element.className = element.className == '' ? 'open' : '';
     var top = nav.className.indexOf('top') == -1 ? '' : 'top ';
     nav.className = top + nav.className == '' ? 'open' : '';
@@ -46,7 +46,7 @@ function toggleNav(e, value, closeMain = false) {
 }
 
 function toggleMain(e) {
-  if (e != null) {
+  if (e !== undefined && e !== null) {
     e.stopPropagation();
     e.preventDefault();
   }
@@ -173,6 +173,9 @@ function initBottom() {
 }
 
 function initTop() {
+  if (window.location.href.indexOf('showsettings') != -1) {
+    toggleNav(null, true);
+  }
   if (document.body.className == 'top') {
     var controls = document.getElementsByTagName('controls')[0];
     label = '';
