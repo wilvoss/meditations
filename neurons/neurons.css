@@ -5,12 +5,15 @@
   --primarySaturation: 70%;
   --wallWidth: 25px;
   --wallHeight: 25px;
+  --darkColor: hsl(var(--primaryHue), var(--primarySaturation), 18%);
+  --mediumDarkColor: hsl(var(--primaryHue), var(--primarySaturation), 30%);
 }
 
 body {
   background: black;
   background-blend-mode: luminosity;
 }
+
 div {
   display: block;
   position: fixed;

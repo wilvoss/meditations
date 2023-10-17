@@ -11,6 +11,7 @@ class ProjectObject {
 }
 var projects = [
   new ProjectObject({ name: 'Particles', path: 'particles', category: 'Emergent', description: '', show: true, pcOnly: false }),
+  new ProjectObject({ name: 'Wormholes', path: 'wormholes', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Poles', path: 'poles', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Neurons', path: 'neurons', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Lattice', path: 'lattice', category: 'Emergent', description: '', show: true, pcOnly: false }),
@@ -19,7 +20,6 @@ var projects = [
   new ProjectObject({ name: 'Interlace', path: 'interlace', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Exposure', path: 'exposure', category: 'Exploratory', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Bugs', path: 'bugs', category: 'Exploratory', description: '', show: true, pcOnly: false }),
-  new ProjectObject({ name: 'Wormholes', path: 'wormholes', category: 'Exploratory', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Dungeon', path: 'dungeon', category: 'Exploratory', description: '', show: true, pcOnly: false }),
 ];
 

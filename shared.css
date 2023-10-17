@@ -155,6 +155,7 @@ a[target='_blank']:before {
   margin: 0 3px 0 0px;
   white-space: nowrap;
 }
+
 .warning {
   color: var(--warningColor);
 }
@@ -206,9 +207,11 @@ footer a:hover {
   color: var(--darkestColor);
   pointer-events: all;
 }
+
 .top footer button {
   display: none;
 }
+
 footer button {
   font-size: 0.8em;
   font-weight: bold;
@@ -264,15 +267,19 @@ footer:hover button.revealed:hover {
 footer button.hidden:hover {
   color: var(--lightestColor);
 }
+
 footer:hover button.revealed:hover {
   color: var(--whiteOpaque);
 }
+
 footer button:first-of-type {
   border-top-left-radius: var(--outerCorners);
 }
+
 footer button:last-of-type {
   border-top-right-radius: var(--outerCorners);
 }
+
 footer.mobile button {
   text-align: right;
   border: none;
@@ -382,6 +389,7 @@ nav {
   touch-action: auto;
   scroll-behavior: smooth;
 }
+
 controls.initial,
 controls.open {
   max-height: calc(100% - 9em);
@@ -401,6 +409,7 @@ nav h1 {
   -webkit-user-select: none;
   -ms-user-select: none;
 }
+
 controls p {
   text-transform: capitalize;
   letter-spacing: normal;
@@ -511,7 +520,7 @@ controls control:first-of-type {
   margin-top: 1.75em;
 }
 
-controls p:first-of-type + control:first-of-type {
+controls p:first-of-type+control:first-of-type {
   margin-top: 0px;
 }
 
@@ -573,10 +582,12 @@ control button span {
   letter-spacing: 0px;
   padding-top: 2px;
 }
+
 control control label span,
 control control button span {
   padding-top: 0px;
 }
+
 control input {
   margin: 0;
   user-select: none;
@@ -593,6 +604,7 @@ input[type='range'] {
 input[type='range']:focus {
   outline: none;
 }
+
 input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 20px;
@@ -662,16 +674,17 @@ control[type='radio'].selected {
   }
 }
 
-control[type='radio'].selected > label {
+control[type='radio'].selected>label {
   color: var(--whiteOpaque);
   text-shadow: none;
 }
-control[type='radio'].selected > label {
+
+control[type='radio'].selected>label {
   background-color: var(--mediumColor);
   background-image: url(site/images/close_icon2.png);
 }
 
-control[type='radio'] > label {
+control[type='radio']>label {
   padding-left: 1.5em;
   background-color: var(--mediumDarkColor);
   background-image: url(site/images/down_arrow2.png);
