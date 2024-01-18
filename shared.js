@@ -100,7 +100,7 @@ function gotoPreviousProject(project) {
   for (let index = 0; index < projects.length; index++) {
     const project = projects[index];
     if (path.indexOf(project.path) != -1) {
-      var previousProject = document.location.origin + '/' + projects[index == 0 ? projects.length - 1 : index - 1].path + '/';
+      var previousProject = document.location.origin + document.location.path + '/' + projects[index == 0 ? projects.length - 1 : index - 1].path + '/';
       document.location.href = previousProject;
     }
   }
@@ -111,7 +111,7 @@ function gotoNextProject(project) {
   for (let index = 0; index < projects.length; index++) {
     const project = projects[index];
     if (path.indexOf(project.path) != -1) {
-      var nextProject = document.location.origin + '/' + projects[index == projects.length - 1 ? 0 : index + 1].path + '/';
+      var nextProject = document.location.origin + document.location.path + '/' + projects[index == projects.length - 1 ? 0 : index + 1].path + '/';
       document.location.href = nextProject;
     }
   }
@@ -157,7 +157,7 @@ function initBottom() {
           b.innerHTML = project.name;
           if ((b.className = path.indexOf(project.path) == -1)) {
             b.onclick = function () {
-              document.location.href = '/' + project.path + '/';
+              document.location.href = '../' + project.path + '/';
             };
           }
 
