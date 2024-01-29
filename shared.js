@@ -157,7 +157,7 @@ function initBottom() {
           b.innerHTML = project.name;
           if ((b.className = path.indexOf(project.path) == -1)) {
             b.onclick = function () {
-              document.location.href = './' + project.path + '/';
+              document.location.href = '/' + project.path + '/';
             };
           }
 
