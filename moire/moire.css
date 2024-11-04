@@ -19,15 +19,10 @@
   --cWeight: 1px;
   --dWeight: 1px;
 
-  --radialA: repeating-radial-gradient(ellipse, var(--colorA), var(--colorA) var(--aWeight), var(--blackTransparent) var(--aWeight), var(--blackTransparent) var(--aGap));
-  --radialB: repeating-radial-gradient(ellipse, var(--colorB), var(--colorB) var(--bWeight), var(--blackTransparent) var(--bWeight), var(--blackTransparent) var(--bGap));
-  --radialC: repeating-radial-gradient(ellipse, var(--colorC), var(--colorC) var(--cWeight), var(--blackTransparent) var(--cWeight), var(--blackTransparent) var(--cGap));
-  --radialD: repeating-radial-gradient(ellipse, var(--colorD), var(--colorD) var(--dWeight), var(--blackTransparent) var(--dWeight), var(--blackTransparent) var(--dGap));
-
-  --linearA: repeating-linear-gradient(0deg, var(--colorA), var(--colorA) var(--aWeight), var(--blackTransparent) var(--aWeight), var(--blackTransparent) var(--aGap));
-  --linearB: repeating-linear-gradient(0deg, var(--colorB), var(--colorB) var(--bWeight), var(--blackTransparent) var(--bWeight), var(--blackTransparent) var(--bGap));
-  --linearC: repeating-linear-gradient(0deg, var(--colorC), var(--colorC) var(--cWeight), var(--blackTransparent) var(--cWeight), var(--blackTransparent) var(--cGap));
-  --linearD: repeating-linear-gradient(0deg, var(--colorD), var(--colorD) var(--dWeight), var(--blackTransparent) var(--dWeight), var(--blackTransparent) var(--dGap));
+  --linearA: repeating-linear-gradient(var(--aDeg), var(--colorA), var(--colorA) var(--aWeight), var(--blackTransparent) var(--aWeight), var(--blackTransparent) var(--aGap));
+  --linearB: repeating-linear-gradient(var(--bDeg), var(--colorB), var(--colorB) var(--bWeight), var(--blackTransparent) var(--bWeight), var(--blackTransparent) var(--bGap));
+  --linearC: repeating-linear-gradient(var(--cDeg), var(--colorC), var(--colorC) var(--cWeight), var(--blackTransparent) var(--cWeight), var(--blackTransparent) var(--cGap));
+  --linearD: repeating-linear-gradient(var(--dDeg), var(--colorD), var(--colorD) var(--dWeight), var(--blackTransparent) var(--dWeight), var(--blackTransparent) var(--dGap));
 
   --patternA: var(--linearA);
   --patternB: var(--linearB);
@@ -62,6 +57,7 @@ body:active {
 controls {
   max-height: 0px;
 }
+
 grids {
   display: block;
   position: absolute;
@@ -72,47 +68,5 @@ grids {
   width: 100%;
   overflow: hidden;
   pointer-events: none;
+  background: var(--patternD), var(--patternC), var(--patternB), var(--patternA);
 }
-
-grid {
-  display: block;
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  transition: ease-in-out 150ms all;
-  transform-origin: 50% 50%;
-  pointer-events: none;
-}
-.aGrid {
-  opacity: var(--aOpacity);
-  background: var(--patternA);
-  transform: rotate(var(--aDeg));
-  /* margin: -1em -1em 0 0; */
-}
-.bGrid {
-  opacity: var(--bOpacity);
-  background: var(--patternB);
-  transform: rotate(var(--bDeg));
-  /* margin: 1em 1em 0em 0; */
-}
-.cGrid {
-  opacity: var(--cOpacity);
-  background: var(--patternC);
-  transform: rotate(var(--cDeg));
-  /* margin: 0em 0em -1em -1em; */
-}
-.dGrid {
-  opacity: var(--dOpacity);
-  background: var(--patternD);
-  transform: rotate(var(--dDeg));
-  /* margin: 0 0 1em 1em; */
-}
-/* 
-@media only screen and (max-width: 600px) {
-  .dGrid,
-  #d {
-    display: none;
-  }
-} */

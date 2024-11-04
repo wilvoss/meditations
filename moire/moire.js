@@ -21,10 +21,6 @@ var baselineY = 0;
 var mouseDetected;
 var isDragging = false;
 
-function toggleBackgroundImage(value) {
-  setStyleVar('--image', value ? backgroundImage : 'none');
-}
-
 function selectLayer(source) {
   for (let index = 0; index < document.getElementsByTagName('control').length; index++) {
     const layer = document.getElementsByTagName('control')[index];
@@ -56,29 +52,7 @@ function updateSpecialValue(source, target, suffix = '') {
     setStyleVar(target, source.value + 'deg');
     setStyleVar(target.replace('Deg', '') + 'Opacity', source.value == -1 ? 0 : 1);
   } else {
-    switch (target) {
-      case 'saturation':
-        updateLabel = false;
-        setStyleVar('--blending', source.checked ? 'luminosity' : 'none');
-        span.innerHTML = source.checked ? 'true' : 'false';
-        break;
-
-      case 'pattern':
-        updateLabel = false;
-        grandparent = control.parentElement.id.toUpperCase();
-        setStyleVar('--pattern' + grandparent + '', source.checked ? 'var(--linear' + grandparent + ')' : 'var(--radial' + grandparent + ')');
-        span.innerHTML = source.checked ? 'linear' : 'radial';
-        break;
-      case '--image':
-        updateLabel = false;
-        setStyleVar(target, source.checked ? backgroundImageURL : 'none');
-        span.innerHTML = source.checked ? 'visible' : 'hidden';
-        break;
-
-      default:
-        setStyleVar(target, source.value + suffix);
-        break;
-    }
+    setStyleVar(target, source.value + suffix);
   }
   if (updateLabel && label.children.length > 0) {
     var span = label.children[0];
@@ -120,10 +94,6 @@ function loadSettings() {
         input3 = control.getElementsByTagName('input')[2];
         input3.value = lp[2];
         updateSpecialValue(input3, '--' + layerName + 'Weight', 'px');
-
-        input4 = control.getElementsByTagName('input')[3];
-        input4.checked = lp[3] != undefined ? (lp[3] == 'true' ? true : false) : true;
-        updateSpecialValue(input4, 'pattern');
       }
     }
   }
@@ -166,18 +136,26 @@ function dragDegrees() {
 function stopDragging(a) {
   a.stopPropagation();
   isDragging = false;
+  constructQuery();
 }
 
-function shareTransposition() {
+function constructQuery() {
   query = '?';
   for (let index = 0; index < 4; index++) {
     control = document.getElementById(grids[index]);
     input1Value = control.getElementsByTagName('input')[0].value;
     input2Value = control.getElementsByTagName('input')[1].value;
     input3Value = control.getElementsByTagName('input')[2].value;
-    input4Checked = control.getElementsByTagName('input')[3].checked;
-    query += grids[index] + '=' + input1Value + ',' + input2Value + ',' + input3Value + ',' + input4Checked + (index < 3 ? '&' : '');
+    query += grids[index] + '=' + input1Value + ',' + input2Value + ',' + input3Value + (index < 3 ? '&' : '');
   }
+
+  const newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + query;
+  history.pushState({ path: newUrl }, '', newUrl);
+  return query;
+}
+
+function shareTransposition() {
+  query = constructQuery();
 
   if (getMobileOperatingSystem() == 'unknown') {
     var textarea = document.createElement('textarea');
@@ -206,11 +184,6 @@ function onKeyUp(e) {
   if (e.key.toLowerCase() == '4') {
     selectLayer(document.getElementById('d'));
   }
-  if (e.key.toLowerCase() == 'p') {
-    const patternCheckbox = currentLayer.getElementsByTagName('input')[3];
-    patternCheckbox.checked = !patternCheckbox.checked;
-    updateSpecialValue(patternCheckbox, 'pattern');
-  }
 }
 
 if (window.addEventListener) {
@@ -225,7 +198,7 @@ window.onload = function () {
   document.getElementsByTagName('grids')[0].ondragstart = () => false;
 };
 if (document.location.search === '') {
-  document.location.search = '?a=135,5,4,true&b=134,5,1,true&c=136,5,1,true&d=137,5,1,true';
+  document.location.search = '?a=135,5,3&b=134,5,1&c=136,5,1&d=137,5,2';
 }
 
 window.onpointermove = GetMouseXY;
