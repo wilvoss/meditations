@@ -136,16 +136,14 @@ function initBottom() {
     var path = document.location.pathname;
     if (isNarrowScreen()) {
       document.getElementsByTagName('footer')[0].className = 'mobile';
-      if (document.location.pathname != '/') {
-        var previousProject = document.createElement('button');
-        previousProject.innerHTML = 'prev ';
-        previousProject.onclick = gotoPreviousProject;
-        targetElement.appendChild(previousProject);
-        var nextProject = document.createElement('button');
-        nextProject.innerHTML = 'next ';
-        nextProject.onclick = gotoNextProject;
-        targetElement.appendChild(nextProject);
-      }
+      var previousProject = document.createElement('button');
+      previousProject.innerHTML = 'prev ';
+      previousProject.onclick = gotoPreviousProject;
+      targetElement.appendChild(previousProject);
+      var nextProject = document.createElement('button');
+      nextProject.innerHTML = 'next ';
+      nextProject.onclick = gotoNextProject;
+      targetElement.appendChild(nextProject);
     } else {
       for (let index = 0; index < projects.length; index++) {
         const project = projects[index];
