@@ -98,7 +98,7 @@ function onKeyUp(e) {
 function gotoPreviousProject(project) {
   var path = document.location.pathname;
   if (path === '/') {
-    document.location.href = '/exposure/';
+    document.location.href = projects[projects.length - 1].path;
   } else {
     for (let index = 0; index < projects.length; index++) {
       const project = projects[index];
@@ -113,7 +113,7 @@ function gotoPreviousProject(project) {
 function gotoNextProject(project) {
   var path = document.location.pathname;
   if (path === '/') {
-    document.location.href = '/particles/';
+    document.location.href = projects[0].path;
   } else {
     for (let index = 0; index < projects.length; index++) {
       const project = projects[index];
