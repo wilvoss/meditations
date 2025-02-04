@@ -30,13 +30,13 @@
     <link rel="stylesheet" href="../shared.css" media="screen" />
     <link rel="stylesheet" href="wormholes.css" media="screen" />
 
-    <script src="wormholes-min.js"></script>
+    <script src="wormholes.min.js"></script>
     <script src="../shared.min.js"></script>
     <script src="../log.js"></script>
   </head>
 
   <body class="glass" ondblclick="event.preventDefault(); event.stopPropagation()">
-    <clickTrack onpointerup=" draggedElement=null; placeTunnel(event); isDragging = false; "></clickTrack>
+    <clickTrack onpointerup=" draggedElement=null; placeTunnel(event, false); isDragging = false; "></clickTrack>
     <skin></skin>
     <tunnels id="tunnels">
     </tunnels>

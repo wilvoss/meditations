@@ -213,16 +213,18 @@ function clearAllTunnels() {
   r.style.setProperty('--backgroundBlendMode', 'normal');
 }
 
-function placeTunnel(event) {
-  event.preventDefault();
-  event.stopPropagation();
+function placeTunnel(event, center = false) {
+  if (event !== null) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
   if (!isDragging || draggedElement == null) {
     r.style.setProperty('--backgroundBlendMode', 'luminosity');
     tunnels = document.getElementById('tunnels');
     var scale = 1;
     var size = getRdmInt(10, 15);
-    var x = tempX - 50 * scale;
-    var y = tempY - 30 * scale;
+    var x = (!center ? tempX : window.innerWidth / 2) - 50 * scale;
+    var y = (!center ? tempY : window.innerHeight / 2) - 30 * scale;
     // if (tunnel != undefined && tunnel != null) {
     //   tunnels.removeChild(tunnel);
     // }
@@ -318,7 +320,7 @@ window.onload = function () {
   thumbPreload.src = 'images/small_' + wormInt + '.jpg';
 
   document.body.appendChild(thumbPreload);
-  // placeTunnel();
+  placeTunnel(null, true);
 };
 
 function onKeyUp(e) {

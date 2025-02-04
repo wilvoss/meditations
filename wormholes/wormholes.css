@@ -1,42 +1,32 @@
 :root {
   --primaryHue: 167;
-
   --glass1: 0.5;
   --glass2: 1;
-
   --xPos: 0;
   --yPos: 0;
-
   --tunnelHue: 205;
-
   --tunnelLight: hsl(var(--tunnelHue), 12%, 93%);
   --tunnelMediumGlass: hsla(var(--tunnelHue), 12%, 28%, var(--glass1));
   --tunnelMediumDark: hsla(var(--tunnelHue), 12%, 28%, var(--glass2));
   --tunnelMedium: hsla(var(--tunnelHue), 12%, 28%, var(--glass1));
   --tunnelDark: hsla(var(--tunnelHue), 0%, 0%, 0);
   --tunnelRing: hsla(var(--tunnelHue), 12%, 8%, var(--glass1));
-
   --tunnelExit: var(--tunnelMediumDark);
-
   --glassRings: radial-gradient(at 70px 70px, var(--tunnelMediumGlass) 40%, var(--tunnelMediumGlass) 45%, var(--blackTransparent) 70%);
   --glassRingsAlt: radial-gradient(at 70px 70px, var(--tunnelMediumGlass) 60%, var(--tunnelMediumGlass) 65%, var(--blackTransparent) 85%);
   --darkRings: radial-gradient(at 70px 70px, var(--tunnelMediumDark) 40%, var(--tunnelMediumDark) 45%, var(--blackTransparent) 70%);
   --darkRingsAlt: radial-gradient(at 70px 70px, var(--tunnelMediumDark) 60%, var(--tunnelMediumDark) 65%, var(--blackTransparent) 85%);
-
   --tunnelSphere: -30px -30px 120px var(--tunnelMediumGlass);
   --tunnelBackground: var(--glassRings);
   --tunnelDepth: 82%;
   --tunnelWidth: 14em;
-
   --backgroundColor: var(--tunnelMediumDark);
   --backgroundBlendMode: normal;
-  --currentBackground: url(images/big_28.jpg);
+  --currentBackground: url(images/big_5.jpg);
   --wormBackground: url(images/small_27.jpg);
-
   --positionX: 8%;
   --positionY: 3%;
   --scale: 1;
-
   --cycle: 8000ms;
 }
 
@@ -45,47 +35,47 @@ html {
 }
 
 body {
+  overflow: hidden;
   background-color: var(--backgroundColor);
   background-image: var(--currentBackground);
-  background-position: center top;
   background-repeat: no-repeat;
-  background-blend-mode: var(--backgroundBlendMode);
-  overflow: hidden;
+  background-position: center top;
   background-size: cover;
+  background-blend-mode: var(--backgroundBlendMode);
   touch-action: none;
   cursor: crosshair;
 }
 
 body > img {
+  overflow: hidden;
   width: 0px;
   height: 0px;
-  overflow: hidden;
   touch-action: none;
 }
 
 tunnels {
   display: block;
   position: fixed;
-  top: 0;
-  left: 0;
+  z-index: 100;
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  top: 0;
+  left: 0;
   pointer-events: none;
   touch-action: none;
-  overflow: hidden;
 }
 
 tunnel {
   display: block;
   position: fixed;
+  overflow: hidden;
   width: var(--tunnelWidth);
   height: var(--tunnelWidth);
+  opacity: 1;
   left: 0em;
   top: 0em;
   border-radius: 50%;
-  overflow: hidden;
-  opacity: 1;
   background: url(/site/images/noise.png), var(--tunnelBackground);
   box-shadow: var(--tunnelSphere);
   pointer-events: all;
@@ -101,13 +91,13 @@ tunnel.init {
 }
 
 .glass tunnel::after {
-  content: '';
   display: block;
   position: absolute;
   width: 100%;
   height: 100%;
-  background: url(/site/images/glass.png) no-repeat;
   background-size: cover;
+  content: '';
+  background: url(/site/images/glass.png) no-repeat;
   pointer-events: none;
 }
 
@@ -115,17 +105,17 @@ skin,
 clickTrack {
   display: block;
   position: fixed;
+  z-index: 30000;
+  overflow: hidden;
   width: 100%;
   height: 100%;
+  opacity: 0;
   left: 0;
   top: 0;
-  opacity: 0;
   background: var(--blackOpaque);
   transition: 1050ms ease-out opacity;
-  z-index: 30000;
   pointer-events: none;
   touch-action: none;
-  overflow: hidden;
 }
 
 skin.blowout {
@@ -144,6 +134,7 @@ clickTrack {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -156,44 +147,45 @@ clickTrack {
 }
 
 ring {
-  background-color: rgba(0, 0, 0, 0);
   display: block;
   position: absolute;
+  overflow: hidden;
   width: var(--tunnelDepth);
   height: var(--tunnelDepth);
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0.98;
   transform: translate(var(--positionX), var(--positionY)) scale(var(--scale), var(--scale));
   border-radius: 50%;
-  overflow: hidden;
   transition: linear transform var(--cycle), width linear 250ms, height linear 250ms;
   background: radial-gradient(var(--tunnelDark) 20%, var(--tunnelRing) 55%, transparent 70%);
   background-blend-mode: multiply;
-  opacity: 0.98;
   touch-action: none;
 }
 
 .moveRings ring {
   animation: var(--cycle) linear 0s 1 moveTunnel;
-  animation-direction: alternate;
   animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 @keyframes moveTunnel {
   0% {
     background-image: var(--glassRings);
   }
+
   100% {
     background-image: var(--glassRingsAlt);
   }
 }
 
 ring.exit {
-  pointer-events: all;
-  background-blend-mode: normal;
   background-color: rgba(0, 0, 0, 0);
   background-image: var(--wormBackground);
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 120% 120%;
-  background-repeat: no-repeat;
+  pointer-events: all;
+  background-blend-mode: normal;
   cursor: pointer;
   touch-action: none;
 }
