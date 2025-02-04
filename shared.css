@@ -335,10 +335,12 @@ footer button:last-of-type {
 footer.mobile button {
   border: none;
   text-align: right;
+  justify-content: end;
 }
 
 footer.mobile button:first-of-type {
   text-align: left;
+  justify-content: start;
 }
 
 footer.mobile button::after {

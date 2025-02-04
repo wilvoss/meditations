@@ -35,7 +35,7 @@ function toggleNav(e, value, closeMain = false) {
 
   element = document.getElementsByTagName('controls')[0];
   nav = document.getElementsByTagName('nav')[0];
-  if (value != undefined && value != null) {
+  if (value !== undefined && value !== null) {
     element.className = value ? 'open' : '';
     nav.className = value ? 'open' : '';
   } else {
@@ -57,7 +57,7 @@ function toggleMain(e) {
     main.className = main.className + ' shifted';
   } else {
     main.className = main.className.toString().replace(' shifted', '');
-    if (label != null) label.innerHTML = 'visible';
+    if (label !== null) label.innerHTML = 'visible';
   }
 }
 
@@ -99,10 +99,12 @@ function gotoPreviousProject(project) {
   var path = document.location.pathname;
   if (path === '/') {
     document.location.href = projects[projects.length - 1].path;
+  } else if (path.indexOf(projects[0].path) !== -1) {
+    document.location.href = '/';
   } else {
     for (let index = 0; index < projects.length; index++) {
       const project = projects[index];
-      if (path.indexOf(project.path) != -1) {
+      if (path.indexOf(project.path) !== -1) {
         var previousProject = document.location.origin + '/' + projects[index == 0 ? projects.length - 1 : index - 1].path + '/';
         document.location.href = previousProject;
       }
@@ -114,10 +116,12 @@ function gotoNextProject(project) {
   var path = document.location.pathname;
   if (path === '/') {
     document.location.href = projects[0].path;
+  } else if (path.indexOf(projects[projects.length - 1].path) !== -1) {
+    document.location.href = '/';
   } else {
     for (let index = 0; index < projects.length; index++) {
       const project = projects[index];
-      if (path.indexOf(project.path) != -1) {
+      if (path.indexOf(project.path) !== -1) {
         var nextProject = document.location.origin + '/' + projects[index == projects.length - 1 ? 0 : index + 1].path + '/';
         document.location.href = nextProject;
       }
@@ -127,7 +131,7 @@ function gotoNextProject(project) {
 
 function initMain() {
   var main = document.getElementsByTagName('main')[0];
-  if (main != undefined) {
+  if (main !== undefined) {
     var anchors = main.getElementsByTagName('a');
 
     for (let index = 0; index < anchors.length; index++) {
@@ -154,11 +158,11 @@ function initBottom() {
         }
       }
       var previousButton = document.createElement('button');
-      previousButton.innerHTML = previousProject.name;
+      previousButton.innerHTML = path.indexOf(projects[0].path) !== -1 ? 'Home' : previousProject.name;
       previousButton.onclick = gotoPreviousProject;
       targetElement.appendChild(previousButton);
       var nextButton = document.createElement('button');
-      nextButton.innerHTML = nextProject.name;
+      nextButton.innerHTML = path.indexOf(projects[projects.length - 1].path) !== -1 ? 'Home' : nextProject.name;
       nextButton.onclick = gotoNextProject;
       targetElement.appendChild(nextButton);
     } else {
@@ -185,7 +189,7 @@ function initBottom() {
 }
 
 function initTop() {
-  // if (window.location.href.indexOf('showsettings') != -1) {
+  // if (window.location.href.indexOf('showsettings') !== -1) {
   setTimeout(() => {
     toggleNav(null, true);
   }, 400);
@@ -196,7 +200,7 @@ function initTop() {
     controls.innerHTML = '';
     projects.forEach((project) => {
       if (project.show == true) {
-        if (label != project.category) {
+        if (label !== project.category) {
           label = project.category;
           var l = document.createElement('p');
           l.innerHTML = project.category;
@@ -246,7 +250,7 @@ document.addEventListener(
 );
 
 document.addEventListener('touchmove', function (event) {
-  if (event.scale != 1) {
+  if (event.scale !== 1) {
     event.stopPropagation();
   }
 });
