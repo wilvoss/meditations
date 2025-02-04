@@ -19,8 +19,8 @@ var projects = [
   new ProjectObject({ name: 'Pop', path: 'pop', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Interlace', path: 'interlace', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Exposure', path: 'exposure', category: 'Exploratory', description: '', show: true, pcOnly: false }),
-  new ProjectObject({ name: 'Bugs', path: 'bugs', category: 'Exploratory', description: '', show: false, pcOnly: false }),
-  new ProjectObject({ name: 'Dungeon', path: 'dungeon', category: 'Exploratory', description: '', show: false, pcOnly: false }),
+  // new ProjectObject({ name: 'Bugs', path: 'bugs', category: 'Exploratory', description: '', show: false, pcOnly: false }),
+  // new ProjectObject({ name: 'Dungeon', path: 'dungeon', category: 'Exploratory', description: '', show: false, pcOnly: false }),
 ];
 
 function toggleNav(e, value, closeMain = false) {
@@ -97,22 +97,30 @@ function onKeyUp(e) {
 
 function gotoPreviousProject(project) {
   var path = document.location.pathname;
-  for (let index = 0; index < projects.length; index++) {
-    const project = projects[index];
-    if (path.indexOf(project.path) != -1) {
-      var previousProject = document.location.origin + '/' + projects[index == 0 ? projects.length - 1 : index - 1].path + '/';
-      document.location.href = previousProject;
+  if (path === '/') {
+    document.location.href = '/exposure/';
+  } else {
+    for (let index = 0; index < projects.length; index++) {
+      const project = projects[index];
+      if (path.indexOf(project.path) != -1) {
+        var previousProject = document.location.origin + '/' + projects[index == 0 ? projects.length - 1 : index - 1].path + '/';
+        document.location.href = previousProject;
+      }
     }
   }
 }
 
 function gotoNextProject(project) {
   var path = document.location.pathname;
-  for (let index = 0; index < projects.length; index++) {
-    const project = projects[index];
-    if (path.indexOf(project.path) != -1) {
-      var nextProject = document.location.origin + '/' + projects[index == projects.length - 1 ? 0 : index + 1].path + '/';
-      document.location.href = nextProject;
+  if (path === '/') {
+    document.location.href = '/particles/';
+  } else {
+    for (let index = 0; index < projects.length; index++) {
+      const project = projects[index];
+      if (path.indexOf(project.path) != -1) {
+        var nextProject = document.location.origin + '/' + projects[index == projects.length - 1 ? 0 : index + 1].path + '/';
+        document.location.href = nextProject;
+      }
     }
   }
 }
