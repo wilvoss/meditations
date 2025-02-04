@@ -184,12 +184,13 @@ footer p {
   display: inline-block;
   overflow: hidden;
   height: auto;
-  border: none;
+  border: 1px solid var(--mediumColor);
   line-height: 0em;
   text-align: center;
   color: var(--darkestColor);
   margin-top: 0;
   border-radius: var(--outerCorners) var(--outerCorners) 0 0;
+  border-width: 1px 1px 0px 1px;
   margin-bottom: 0;
   pointer-events: none;
   margin-left: 0em;
@@ -322,14 +323,6 @@ footer button.hidden:hover {
 
 footer:hover button.revealed:hover {
   color: var(--whiteOpaque);
-}
-
-footer button:first-of-type {
-  border-top-left-radius: var(--outerCorners);
-}
-
-footer button:last-of-type {
-  border-top-right-radius: var(--outerCorners);
 }
 
 footer.mobile button {
