@@ -39,9 +39,9 @@ function addThreads() {
   // if (getMobileOperatingSystem() !== 'unknown') {
   //   document.getElementById('glow').style.display = 'none';
   // } else {
-  document.getElementById('glowRange').value = 10;
-  document.getElementById('glowValue').innerHTML = '10px';
-  setStyleVar('--glow', '10px');
+  document.getElementById('glowRange').value = 0;
+  document.getElementById('glowValue').innerHTML = '0px';
+  setStyleVar('--glow', '0px');
   // }
   for (let x = 1; x < 5; x++) {
     const fabric = new FabricObject({});
