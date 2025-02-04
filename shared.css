@@ -216,7 +216,7 @@ footer a:hover {
 }
 
 footer button {
-  display: inline-block;
+  display: inline-flex;
   width: 10em;
   margin: 0px;
   padding: 1em 0em 1em;
@@ -229,6 +229,8 @@ footer button {
   color: var(--lightestColor);
   opacity: 1;
   transform: translate(0, 0);
+  flex-direction: row;
+  justify-content: center;
   padding-bottom: calc(1em + env(safe-area-inset-bottom));
   outline: none;
   background: var(--darkestColor);
@@ -256,7 +258,7 @@ button.revealed name {
 }
 
 footer button num {
-  display: inline-block;
+  display: block;
   overflow: hidden;
   width: 100%;
   line-height: 100%;
@@ -265,10 +267,12 @@ footer button num {
 }
 
 footer button name {
-  display: inline-block;
+  display: block;
   overflow: hidden;
+  width: 100%;
   line-height: 100%;
   color: var(--lightestColor);
+  max-width: 0px;
 }
 
 footer button.revealed num,
@@ -284,6 +288,11 @@ footer:hover button.revealed {
   width: 3em;
   color: transparent;
   white-space: nowrap;
+}
+
+footer button.revealed name,
+footer button.hidden:hover name {
+  max-width: 100px;
 }
 
 footer button:last-of-type {
