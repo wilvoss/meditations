@@ -510,7 +510,7 @@ nav.open h1 span {
 }
 
 body back {
-  display: block;
+  display: flex;
   position: fixed;
   z-index: 3000;
   width: 1em;
@@ -518,8 +518,10 @@ body back {
   padding: 1em;
   line-height: 100%;
   text-align: center;
-  color: var(--lighterColor);
+  color: var(--lightestColor);
   transform: translate(0, 0);
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   background: var(--darkColor);
   top: 2em;
@@ -533,7 +535,14 @@ body back {
 }
 
 body back::after {
-  content: '✕';
+  display: flex;
+  position: absolute;
+  font-size: 24px;
+  line-height: 100%;
+  transform: translateY(-3px);
+  justify-content: center;
+  align-items: center;
+  content: '⌂';
 }
 
 @media only screen and (max-width: 600px) {
