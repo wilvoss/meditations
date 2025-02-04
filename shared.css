@@ -257,7 +257,8 @@ button.revealed name {
   color: var(--whiteOpaque);
 }
 
-footer button num {
+footer button num,
+footer:hover button.revealed num {
   display: block;
   overflow: hidden;
   width: 100%;
@@ -266,7 +267,9 @@ footer button num {
   color: var(--lightestColor);
 }
 
-footer button name {
+footer button name,
+footer:hover button name,
+footer:hover button.revealed name {
   display: block;
   overflow: hidden;
   width: 100%;
@@ -276,10 +279,17 @@ footer button name {
 }
 
 footer button.revealed num,
-footer button.hidden:hover num {
+footer button.hidden:hover num,
+footer:hover button.revealed:hover num {
   color: transparent;
   text-shadow: 0px 0px 8px transparent;
   max-width: 0px;
+}
+
+footer:hover button.revealed num {
+  text-align: center;
+  color: var(--lightestColor);
+  max-width: 100%;
 }
 
 footer button.hidden,
@@ -291,7 +301,9 @@ footer:hover button.revealed {
 }
 
 footer button.revealed name,
+footer:hover button.revealed:hover name,
 footer button.hidden:hover name {
+  color: var(--whiteOpaque);
   max-width: 100px;
 }
 
