@@ -223,8 +223,13 @@ function placeTunnel(event, center = false) {
     tunnels = document.getElementById('tunnels');
     var scale = 1;
     var size = getRdmInt(10, 15);
-    var x = (!center ? tempX : window.innerWidth / 2) - 50 * scale;
-    var y = (!center ? tempY : window.innerHeight / 2) - 30 * scale;
+    var x = tempX - 50 * scale;
+    var y = tempY - 30 * scale;
+    if (center) {
+      x = window.innerWidth / 2 - 50 * scale;
+      y = window.innerHeight / 2 - 30 * scale;
+    }
+
     // if (tunnel != undefined && tunnel != null) {
     //   tunnels.removeChild(tunnel);
     // }
