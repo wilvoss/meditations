@@ -231,7 +231,7 @@ footer button {
   transform: translate(0, 0);
   padding-bottom: calc(1em + env(safe-area-inset-bottom));
   outline: none;
-  background: var(--darkColor);
+  background: var(--darkestColor);
   cursor: pointer;
   letter-spacing: 2px;
   pointer-events: all;
@@ -247,8 +247,12 @@ footer button {
 
 button.revealed {
   color: var(--whiteOpaque);
-  background-color: var(--darkestColor);
+  background-color: var(--darkerColor);
   cursor: default;
+}
+
+button.revealed name {
+  color: var(--whiteOpaque);
 }
 
 footer button num {
@@ -257,6 +261,13 @@ footer button num {
   width: 100%;
   line-height: 100%;
   text-align: center;
+  color: var(--lightestColor);
+}
+
+footer button name {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 100%;
   color: var(--lightestColor);
 }
 

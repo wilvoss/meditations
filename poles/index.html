@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8" />
     <meta content="x-content-type-options=nosniff" />
@@ -15,7 +16,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-transluscent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="keywords" content="Wil Voss, Playground, Poles, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
+    <meta name="keywords"
+      content="Wil Voss, Playground, Poles, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
     <meta name="description" content="Magnetic magic." />
 
     <meta property="og:title" content="Poles" />
@@ -28,7 +30,7 @@
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <link rel="stylesheet" href="../shared.css" media="screen" />
+    <link rel="stylesheet" href="../shared.css?3" media="screen" />
     <link rel="stylesheet" href="filiments.css" media="screen" />
 
     <script src="filiments-min.js"></script>
@@ -48,23 +50,28 @@
       <!-- <p>appearance</p> -->
       <control>
         <label for="influenceRange">Polarity<span>-1</span></label>
-        <input type="range" id="influenceRange" min="-7.5" max="7.5" value="-1" oninput="updateCSSAndLabel(this, '--influence'); updateFiliments(true, this.value)" step=".25" />
+        <input type="range" id="influenceRange" min="-7.5" max="7.5" value="-1"
+          oninput="updateCSSAndLabel(this, '--influence'); updateFiliments(true, this.value)" step=".25" />
       </control>
       <control>
         <label for="widthRange">Width<span>10px</span></label>
-        <input type="range" id="widthRange" min="1" max="300" value="10" oninput="updateCSSAndLabel(this, '--filimentWidth', 'px');" step="1" />
+        <input type="range" id="widthRange" min="1" max="300" value="10"
+          oninput="updateCSSAndLabel(this, '--filimentWidth', 'px');" step="1" />
       </control>
       <control>
         <label for="heightRange">Height<span>60px</span></label>
-        <input type="range" id="heightRange" min="1" max="300" value="60" oninput="updateCSSAndLabel(this, '--filimentHeight', 'px');" step="1" />
+        <input type="range" id="heightRange" min="1" max="300" value="60"
+          oninput="updateCSSAndLabel(this, '--filimentHeight', 'px');" step="1" />
       </control>
       <control class="checkbox">
         <label for="darkCheckbox">Dark<span id="darkSpan">false</span></label>
-        <input type="checkbox" id="darkCheckbox" checked="true" oninput="useDark = !useDark; switchColor(); document.getElementById('darkSpan').innerHTML = useDark" />
+        <input type="checkbox" id="darkCheckbox" checked="true"
+          oninput="useDark = !useDark; switchColor(); document.getElementById('darkSpan').innerHTML = useDark" />
       </control>
       <control class="checkbox">
         <label for="sinCheckbox">Columnal<span id="sinSpan">false</span></label>
-        <input type="checkbox" id="sinCheckbox" checked="true" oninput="useASinH = !useASinH; updateFiliments(true); document.getElementById('sinSpan').innerHTML = useASinH" />
+        <input type="checkbox" id="sinCheckbox" checked="true"
+          oninput="useASinH = !useASinH; updateFiliments(true); document.getElementById('sinSpan').innerHTML = useASinH" />
       </control>
     </controls>
     <filiments></filiments>
@@ -72,4 +79,5 @@
       <p></p>
     </footer>
   </body>
+
 </html>
