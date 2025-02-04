@@ -223,12 +223,12 @@ footer button {
   border: none;
   font-family: var(--mainFont);
   font-size: 0.8em;
-  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
   color: var(--lightestColor);
   opacity: 1;
   transform: translate(0, 0);
+  padding-bottom: calc(0.7em + env(safe-area-inset-bottom));
   outline: none;
   background: var(--darkColor);
   cursor: pointer;
@@ -253,6 +253,7 @@ button.revealed {
 footer button num {
   position: absolute;
   width: 100%;
+  font-weight: bold;
   text-align: center;
   color: var(--lightestColor);
 }
@@ -308,6 +309,7 @@ footer.mobile button:first-of-type {
 footer.mobile button::after {
   display: block;
   float: right;
+  color: var(--whiteOpaque);
   content: '❯';
   padding-right: 1em;
   padding-left: 0.5em;
@@ -321,6 +323,7 @@ footer.mobile button:first-of-type::after {
 footer.mobile button:first-of-type::before {
   display: block;
   float: left;
+  color: var(--whiteOpaque);
   content: '❮';
   padding-left: 1em;
   padding-right: 0.5em;

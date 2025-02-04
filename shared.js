@@ -144,14 +144,26 @@ function initBottom() {
     var path = document.location.pathname;
     if (isNarrowScreen()) {
       document.getElementsByTagName('footer')[0].className = 'mobile';
-      var previousProject = document.createElement('button');
-      previousProject.innerHTML = 'prev ';
-      previousProject.onclick = gotoPreviousProject;
-      targetElement.appendChild(previousProject);
-      var nextProject = document.createElement('button');
-      nextProject.innerHTML = 'next ';
-      nextProject.onclick = gotoNextProject;
-      targetElement.appendChild(nextProject);
+      if (window.location.pathname !== '/') {
+        // let previousProject
+        let nextProject = projects[0],
+          previousProject = projects[projects.length - 1];
+        for (let index = 0; index < projects.length; index++) {
+          const project = projects[index];
+          if (path.indexOf(project.path) !== -1) {
+            previousProject = projects[index == 0 ? projects.length - 1 : index - 1];
+            nextProject = projects[index == projects.length - 1 ? 0 : index + 1];
+          }
+        }
+        var previousButton = document.createElement('button');
+        previousButton.innerHTML = previousProject.name;
+        previousButton.onclick = gotoPreviousProject;
+        targetElement.appendChild(previousButton);
+        var nextButton = document.createElement('button');
+        nextButton.innerHTML = nextProject.name;
+        nextButton.onclick = gotoNextProject;
+        targetElement.appendChild(nextButton);
+      }
     } else {
       for (let index = 0; index < projects.length; index++) {
         const project = projects[index];
