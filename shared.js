@@ -19,8 +19,8 @@ var projects = [
   new ProjectObject({ name: 'Pop', path: 'pop', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Interlace', path: 'interlace', category: 'Emergent', description: '', show: true, pcOnly: false }),
   new ProjectObject({ name: 'Exposure', path: 'exposure', category: 'Exploratory', description: '', show: true, pcOnly: false }),
-  new ProjectObject({ name: 'Bugs', path: 'bugs', category: 'Exploratory', description: '', show: true, pcOnly: false }),
-  new ProjectObject({ name: 'Dungeon', path: 'dungeon', category: 'Exploratory', description: '', show: true, pcOnly: false }),
+  new ProjectObject({ name: 'Bugs', path: 'bugs', category: 'Exploratory', description: '', show: false, pcOnly: false }),
+  new ProjectObject({ name: 'Dungeon', path: 'dungeon', category: 'Exploratory', description: '', show: false, pcOnly: false }),
 ];
 
 function toggleNav(e, value, closeMain = false) {

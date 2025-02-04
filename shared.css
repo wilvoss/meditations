@@ -149,7 +149,7 @@ main a {
   cursor: pointer;
 }
 
-a:after {
+main a:after {
   margin: 0 3px 0 6px;
   color: var(--whiteOpaque);
   content: '❯';
