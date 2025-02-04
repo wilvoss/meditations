@@ -219,16 +219,17 @@ footer button {
   display: inline-block;
   width: 10em;
   margin: 0px;
-  padding: 0.7em 0em 0.7em;
+  padding: 1em 0em 1em;
   border: none;
   font-family: var(--mainFont);
   font-size: 0.8em;
+  line-height: 100%;
   text-align: center;
   text-transform: uppercase;
   color: var(--lightestColor);
   opacity: 1;
   transform: translate(0, 0);
-  padding-bottom: calc(0.7em + env(safe-area-inset-bottom));
+  padding-bottom: calc(1em + env(safe-area-inset-bottom));
   outline: none;
   background: var(--darkColor);
   cursor: pointer;
@@ -251,9 +252,10 @@ button.revealed {
 }
 
 footer button num {
-  position: absolute;
+  display: inline-block;
+  overflow: hidden;
   width: 100%;
-  font-weight: bold;
+  line-height: 100%;
   text-align: center;
   color: var(--lightestColor);
 }
@@ -262,12 +264,13 @@ footer button.revealed num,
 footer button.hidden:hover num {
   color: transparent;
   text-shadow: 0px 0px 8px transparent;
+  max-width: 0px;
 }
 
 footer button.hidden,
 footer:hover button.revealed {
   overflow: hidden;
-  width: 2.5em;
+  width: 3em;
   color: transparent;
   white-space: nowrap;
 }
@@ -623,6 +626,7 @@ control input {
 
 input[type='range'] {
   width: 100%;
+  appearance: none;
   -webkit-appearance: none;
   background: transparent;
 }

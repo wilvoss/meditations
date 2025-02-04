@@ -166,7 +166,7 @@ function initBottom() {
         const project = projects[index];
         if (project.show == true) {
           var b = document.createElement('button');
-          b.innerHTML = `<num>${index + 1}</num> <name>${project.name}</name>`;
+          b.innerHTML = `<num>#${index + 1}</num> <name>${project.name}</name>`;
           if ((b.className = path.indexOf(project.path) == -1)) {
             b.onclick = function () {
               document.location.href = '/' + project.path + '/';
