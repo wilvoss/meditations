@@ -120,9 +120,6 @@ function gotoNextProject(project) {
 function initMain() {
   var main = document.getElementsByTagName('main')[0];
   if (main != undefined) {
-    if (document.body.className != 'top') {
-      main.onpointerup = toggleMain(null);
-    }
     var anchors = main.getElementsByTagName('a');
 
     for (let index = 0; index < anchors.length; index++) {
@@ -154,7 +151,7 @@ function initBottom() {
         const project = projects[index];
         if (project.show == true) {
           var b = document.createElement('button');
-          b.innerHTML = project.name;
+          b.innerHTML = `<num>${index + 1}</num> <name>${project.name}</name>`;
           if ((b.className = path.indexOf(project.path) == -1)) {
             b.onclick = function () {
               document.location.href = '/' + project.path + '/';
@@ -173,9 +170,11 @@ function initBottom() {
 }
 
 function initTop() {
-  if (window.location.href.indexOf('showsettings') != -1) {
+  // if (window.location.href.indexOf('showsettings') != -1) {
+  setTimeout(() => {
     toggleNav(null, true);
-  }
+  }, 400);
+  // }
   if (document.body.className == 'top') {
     var controls = document.getElementsByTagName('controls')[0];
     label = '';

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8" />
     <meta content="x-content-type-options=nosniff" />
@@ -15,7 +16,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-transluscent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="keywords" content="Wil Voss, Moiré, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
+    <meta name="keywords"
+      content="Wil Voss, Moiré, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
     <meta name="description" content="Moiré patterns are a great way to explore the concept of emergence." />
 
     <meta property="og:title" content="Moiré" />
@@ -30,7 +32,7 @@
 
     <link rel="stylesheet" href="../shared.css" media="screen" />
     <link rel="stylesheet" href="moire.css" media="screen" />
-    <script src="../shared-min.js"></script>
+    <script src="../shared.min.js"></script>
     <script src="../log.js"></script>
   </head>
 
@@ -47,50 +49,62 @@
       <!-- <p>Appearance</p> -->
       <control id="a" value="on" type="radio">
         <label for="aDegreeRange" onpointerup="selectLayer(this.parentNode)">Layer 1<span>0°</span></label>
-        <input type="range" id="aDegreeRange" min="-1" max="360" value="0" oninput="updateSpecialValue(this, '--aDeg', '°')" step="1" />
+        <input type="range" id="aDegreeRange" min="-1" max="360" value="0"
+          oninput="updateSpecialValue(this, '--aDeg', '°')" step="1" />
         <control>
           <label for="aGapRange">Gap<span>5px</span></label>
-          <input tabindex="-1" type="range" id="aGapRange" min="5" max="25" value="5" step="1" oninput="updateCSSAndLabel(this, '--aGap', 'px')" />
+          <input tabindex="-1" type="range" id="aGapRange" min="5" max="25" value="5" step="1"
+            oninput="updateCSSAndLabel(this, '--aGap', 'px')" />
         </control>
         <control>
           <label for="aWeightRange">Weight<span>1px</span></label>
-          <input tabindex="-1" type="range" id="aWeightRange" min="1" max="4" value="1" step="1" oninput="updateCSSAndLabel(this, '--aWeight', 'px')" />
+          <input tabindex="-1" type="range" id="aWeightRange" min="1" max="4" value="1" step="1"
+            oninput="updateCSSAndLabel(this, '--aWeight', 'px')" />
         </control>
       </control>
       <control id="b" value="on" type="radio">
         <label for="bDegreeRange" onpointerup="selectLayer(this.parentNode)">Layer 2<span>6°</span></label>
-        <input type="range" id="bDegreeRange" min="-1" max="360" value="6" oninput="updateSpecialValue(this, '--bDeg', '°')" step="1" />
+        <input type="range" id="bDegreeRange" min="-1" max="360" value="6"
+          oninput="updateSpecialValue(this, '--bDeg', '°')" step="1" />
         <control>
           <label for="bGapRange">Gap<span>5px</span></label>
-          <input tabindex="-1" type="range" id="bGapRange" min="5" max="25" value="5" step="1" oninput="updateCSSAndLabel(this, '--bGap', 'px')" />
+          <input tabindex="-1" type="range" id="bGapRange" min="5" max="25" value="5" step="1"
+            oninput="updateCSSAndLabel(this, '--bGap', 'px')" />
         </control>
         <control>
           <label for="bWeightRange">Weight<span>1px</span></label>
-          <input tabindex="-1" type="range" id="bWeightRange" min="1" max="4" value="1" step="1" oninput="updateCSSAndLabel(this, '--bWeight', 'px')" />
+          <input tabindex="-1" type="range" id="bWeightRange" min="1" max="4" value="1" step="1"
+            oninput="updateCSSAndLabel(this, '--bWeight', 'px')" />
         </control>
       </control>
       <control id="c" value="off" type="radio">
         <label for="cDegreeRange" onpointerup="selectLayer(this.parentNode)">Layer 3<span>off</span></label>
-        <input type="range" id="cDegreeRange" min="-1" max="360" value="-1" oninput="updateSpecialValue(this, '--cDeg', '°')" step="1" />
+        <input type="range" id="cDegreeRange" min="-1" max="360" value="-1"
+          oninput="updateSpecialValue(this, '--cDeg', '°')" step="1" />
         <control>
           <label for="cGapRange">Gap<span>5px</span></label>
-          <input tabindex="-1" type="range" id="cGapRange" min="5" max="25" value="5" step="1" oninput="updateCSSAndLabel(this, '--cGap', 'px')" />
+          <input tabindex="-1" type="range" id="cGapRange" min="5" max="25" value="5" step="1"
+            oninput="updateCSSAndLabel(this, '--cGap', 'px')" />
         </control>
         <control>
           <label for="cWeightRange">Weight<span>1px</span></label>
-          <input tabindex="-1" type="range" id="cWeightRange" min="1" max="4" value="1" step="1" oninput="updateCSSAndLabel(this, '--cWeight', 'px')" />
+          <input tabindex="-1" type="range" id="cWeightRange" min="1" max="4" value="1" step="1"
+            oninput="updateCSSAndLabel(this, '--cWeight', 'px')" />
         </control>
       </control>
       <control id="d" value="off" type="radio">
         <label for="dDegreeRange" onpointerup="selectLayer(this.parentNode)">Layer 4<span>off</span></label>
-        <input type="range" id="dDegreeRange" min="-1" max="360" value="-1" oninput="updateSpecialValue(this, '--dDeg', '°')" step="1" />
+        <input type="range" id="dDegreeRange" min="-1" max="360" value="-1"
+          oninput="updateSpecialValue(this, '--dDeg', '°')" step="1" />
         <control>
           <label for="dGapRange">Gap<span>5px</span></label>
-          <input tabindex="-1" type="range" id="dGapRange" min="5" max="25" value="5" step="1" oninput="updateCSSAndLabel(this, '--dGap', 'px')" />
+          <input tabindex="-1" type="range" id="dGapRange" min="5" max="25" value="5" step="1"
+            oninput="updateCSSAndLabel(this, '--dGap', 'px')" />
         </control>
         <control>
           <label for="dWeightRange">Weight<span>1px</span></label>
-          <input tabindex="-1" type="range" id="dWeightRange" min="1" max="4" value="1" step="1" oninput="updateCSSAndLabel(this, '--dWeight', 'px')" />
+          <input tabindex="-1" type="range" id="dWeightRange" min="1" max="4" value="1" step="1"
+            oninput="updateCSSAndLabel(this, '--dWeight', 'px')" />
         </control>
       </control>
       <!-- <p>Sandbox</p> -->
@@ -114,4 +128,5 @@
     </footer>
     <script src="moire.min.js"></script>
   </body>
+
 </html>
