@@ -73,10 +73,10 @@ tunnel {
   width: var(--tunnelWidth);
   height: var(--tunnelWidth);
   opacity: 1;
+  background-image: url(/site/images/noise.png), var(--tunnelBackground);
   left: 0em;
   top: 0em;
   border-radius: 50%;
-  background: url(/site/images/noise.png), var(--tunnelBackground);
   box-shadow: var(--tunnelSphere);
   pointer-events: all;
   touch-action: none;
@@ -87,7 +87,7 @@ tunnel.init {
 }
 
 .glass tunnel {
-  background: var(--tunnelBackground);
+  background-image: var(--tunnelBackground);
 }
 
 .glass tunnel::after {
@@ -95,9 +95,10 @@ tunnel.init {
   position: absolute;
   width: 100%;
   height: 100%;
+  background-image: url(/site/images/glass.png);
+  background-repeat: no-repeat;
   background-size: cover;
   content: '';
-  background: url(/site/images/glass.png) no-repeat;
   pointer-events: none;
 }
 
@@ -110,9 +111,9 @@ clickTrack {
   width: 100%;
   height: 100%;
   opacity: 0;
+  background-image: var(--blackOpaque);
   left: 0;
   top: 0;
-  background: var(--blackOpaque);
   transition: 1050ms ease-out opacity;
   pointer-events: none;
   touch-action: none;
