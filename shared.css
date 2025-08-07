@@ -438,7 +438,7 @@ controls {
 
 nav {
   border-radius: var(--outerCorners);
-  background: var(--darkestColor);
+  background: var(--darkColor);
   padding: 1.5em 1em;
   width: calc(var(--mainWidth) - 5em);
 }
@@ -517,17 +517,20 @@ nav h1 span {
   background-position: right 0.9em top 0.5em;
   background-size: 0.9em 0.9em;
   background-repeat: no-repeat;
+  background-color: var(--darkColor);
   padding: 1em 2.2em 1em 1em;
   color: var(--lighterColor);
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: ease-in-out var(--speed) background-image;
+  background-blend-mode: color-dodge;
 }
 
 nav.open h1 span {
   background-image: url(site/images/close_icon2.png);
   background-size: 0.9em 0.9em;
+  background-blend-mode: color-dodge;
 }
 
 body back {
