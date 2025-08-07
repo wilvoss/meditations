@@ -419,7 +419,7 @@ nav {
   border-radius: var(--outerCorners);
   background: var(--darkestSemiTColor);
   padding: 1.5em 0px 0px;
-  width: calc(var(--mainWidth) - 3em);
+  width: calc(var(--mainWidth) - 4em);
   max-height: 0em;
   overflow: auto;
   user-select: none;
@@ -440,7 +440,7 @@ nav {
   border-radius: var(--outerCorners);
   background: var(--darkColor);
   padding: 1.5em 1em;
-  width: calc(var(--mainWidth) - 5em);
+  width: calc(var(--mainWidth) - 6em);
 }
 
 nav.open {
@@ -679,6 +679,7 @@ control button span {
   -webkit-user-select: none;
   -ms-user-select: none;
   padding-top: 2px;
+  font-weight: bold;
   letter-spacing: 0px;
   text-shadow: 0px -1px 0px var(--blackOpaque);
 }
@@ -711,7 +712,7 @@ input[type='range']::-webkit-slider-thumb {
   height: 24px;
   -webkit-appearance: none;
   cursor: pointer;
-  margin-top: -6px;
+  margin-top: -6.5px;
   box-shadow: 0px 1px 2px var(--blackOpaque);
   border-radius: 50%;
   background: var(--lightestColor);

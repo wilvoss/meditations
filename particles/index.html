@@ -41,19 +41,19 @@
       }
 
       html {
-        overflow: hidden;
         width: 100%;
         height: 100%;
+        overflow: hidden;
       }
 
       body {
-        background: url(../site/images/particle-background.jpg) no-repeat;
+        cursor: crosshair;
+        background: var(--lightColor) url(../site/images/particle-background.jpg) no-repeat;
         background-size: cover;
-        overflow: hidden;
         width: 100%;
         height: 100%;
+        overflow: hidden;
         touch-action: none;
-        cursor: crosshair;
       }
 
       .blah {
@@ -68,26 +68,26 @@
       }
 
       #presets button {
-        width: 150px;
-        background: rgba(0, 0, 0, 0);
-        border-width: 0px;
         display: block;
+        border-width: 0px;
+        background: rgba(0, 0, 0, 0);
         padding: 0px;
-        text-align: left;
+        width: 150px;
         font-size: 90%;
+        text-align: left;
       }
 
       #keyCommands button {
-        width: 50px;
         opacity: 0.5;
-        height: 30px;
-        background: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.5);
         margin-right: 10px;
-        text-align: center;
-        font-size: 90%;
-        padding: 0px;
         margin-bottom: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        background: #fff;
+        padding: 0px;
+        width: 50px;
+        height: 30px;
+        font-size: 90%;
+        text-align: center;
       }
 
       button.on {
@@ -115,7 +115,7 @@
     <nav onpointerdown="toggleNav(event)">
       <h1>
         <title>Particles</title>
-        <span>options</span>
+        <span></span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
@@ -147,24 +147,17 @@
         <button onclick="FlipSlowMotion()">Toggle speed<span>W</span></button>
       </control>
       <control class="button">
-        <button onclick="CycleColor()">Cycle color<span>C</span></button>
+        <button onclick="BumpSize()">Size<span id="size">1</span></button>
       </control>
       <control class="button">
-        <button onclick="DarkenBackground()">Cycle background<span>L</span></button>
+        <button onclick="BumpSpread()">Spread<span id="spreadFactor">1</span></button>
       </control>
-      <control class="button">
-        <button onclick="BumpSize()">Cycle size<span>1 - 9</span></button>
-      </control>
-      <!-- <control class="checkbox">
-        <label for="mouseCheckbox">Follow mouse<span id="mouseCheckboxLabel">true</span></label>
-        <input type="checkbox" id="mouseCheckbox" checked="false"
-          oninput="fixed = !fixed; document.getElementById('mouseCheckboxLabel').innerHTML=!fixed" />
-      </control> -->
+
     </controls>
     <footer>
       <p></p>
     </footer>
-    <script src="particles-min.js"></script>
+    <script src="particles.min.js"></script>
   </body>
 
 </html>

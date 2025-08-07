@@ -43,16 +43,16 @@
     <nav onpointerup="event.stopPropagation();" onpointerdown="draggedElement=null; toggleNav(event)">
       <h1>
         <title>Pop</title>
-        <span>options</span>
+        <span></span>
       </h1>
     </nav>
     <back onpointerup="location.href='../'"></back>
     <controls onpointerdown="draggedElement=null; event.stopPropagation() ">
       <!-- <p>appearance</p> -->
       <control id="a">
-        <label for="spreadRange" onpointerup='selectLayer(this.parentNode)'>Spread<span>10%</span></label>
-        <input type="range" id="spreadRange" min="1" max="20" value="10"
-          oninput="updateCSSAndLabel(this, '--gap2', '%')" step=".1" />
+        <label for="spreadRange" onpointerup='selectLayer(this.parentNode)'>Spread<span>5%</span></label>
+        <input type="range" id="spreadRange" min="1" max="20" value="5" oninput="updateCSSAndLabel(this, '--gap2', '%')"
+          step=".1" />
       </control>
       <control id="a">
         <label for="saturationRange" onpointerup='selectLayer(this.parentNode)'>Saturation<span>50%</span></label>

@@ -29,6 +29,10 @@ me {
   touch-action: none;
 }
 
+controls p:first-of-type {
+  margin-top: 2.5em;
+}
+
 @media only screen and (max-width: 600px) {
 
   body,

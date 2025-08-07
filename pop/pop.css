@@ -8,7 +8,7 @@
   --locationX: 10%;
   --locationY: 10%;
   --gap1: 0.15%;
-  --gap2: 10%;
+  --gap2: 5%;
   --image: url(typeset-phone.jpg);
   --image1: repeating-radial-gradient(circle at var(--locationX) var(--locationY), var(--blackOpaque) 0%, transparent var(--gap1), var(--blackOpaque) var(--gap2));
 }

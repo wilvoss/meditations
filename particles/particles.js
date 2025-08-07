@@ -182,7 +182,7 @@ function StartMagic() {
         FlipBlur();
         break;
       case 67:
-        CycleColor();
+        // CycleColor();
         break;
       case 68:
         FlipDirection();
@@ -194,7 +194,7 @@ function StartMagic() {
         FlipSmoke();
         break;
       case 76:
-        DarkenBackground();
+        // DarkenBackground();
         break;
       case 80:
         BumpSpread();
@@ -203,7 +203,7 @@ function StartMagic() {
         FlipSpatter();
         break;
       case 83:
-        FlipStream();
+        // FlipStream();
         break;
       case 87:
         FlipSlowMotion();
@@ -212,7 +212,7 @@ function StartMagic() {
   //
   FlipSpatter();
   FlipStream();
-  CycleColor();
+  // CycleColor();
   FlipDirection();
   FlipGPU();
   sticky = false;
@@ -273,13 +273,15 @@ function Flipmix() {
   mix = !mix;
 }
 function BumpSize() {
-  if (sizeFactor == 11) sizeFactor = 0;
+  if (sizeFactor == 5) sizeFactor = 0;
   sizeFactor++;
+  document.getElementById('size').innerHTML = sizeFactor;
 }
 function BumpSpread() {
   if (spatter) {
-    if (spreadFactor >= 40) spreadFactor = -4;
+    if (spreadFactor >= 20) spreadFactor = -4;
     spreadFactor += 5;
+    document.getElementById('spreadFactor').innerHTML = spreadFactor;
   }
 }
 var showCommands = false;
