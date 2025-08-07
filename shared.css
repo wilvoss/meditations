@@ -17,15 +17,20 @@
   --primaryHue: 125;
   --altHue: 205;
   --primarySaturation: 53%;
+  --semiTsaturation: 100%;
+  --navOpacity: .6;
   --lightestColor: hsl(var(--primaryHue), var(--primarySaturation), 75%);
   --lighterColor: hsl(var(--primaryHue), var(--primarySaturation), 60%);
   --lightColor: hsl(var(--primaryHue), var(--primarySaturation), 50%);
   --mediumLightColor: hsl(var(--primaryHue), var(--primarySaturation), 40%);
   --mediumColor: hsl(var(--primaryHue), var(--primarySaturation), 30%);
+  --mediumSemiTColor: hsla(var(--primaryHue), var(--semiTsaturation), 30%, var(--navOpacity));
   --mediumDarkColor: hsl(var(--primaryHue), var(--primarySaturation), 20%);
+  --mediumDarkSemiTColor: hsla(var(--primaryHue), var(--semiTsaturation), 20%, var(--navOpacity));
   --darkColor: hsl(var(--primaryHue), var(--primarySaturation), 10%);
   --darkerColor: hsl(var(--primaryHue), var(--primarySaturation), 8%);
   --darkestColor: hsl(var(--primaryHue), var(--primarySaturation), 7%);
+  --darkestSemiTColor: hsla(var(--primaryHue), var(--semiTsaturation), 7%, var(--navOpacity));
   --backgroundColor: hsl(var(--altHue), 34%, 50%);
   --whiteOpaque: rgb(255, 255, 255);
   --blackOpaque: rgb(0, 0, 0);
@@ -255,6 +260,7 @@ footer button {
   text-transform: uppercase;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button.revealed {
@@ -406,13 +412,14 @@ nav {
   transform: translate(0, 0);
   z-index: 1000000;
   transition: ease-in-out var(--slowSpeed) max-height;
+  transition-property: max-height, border-radius;
   cursor: default;
-  margin: 2em 1em 1em;
-  box-shadow: 0px 5px 10px var(--blackSemiTransparent);
+  margin: 1.5em 1em 1em;
+  /* box-shadow: 0px 5px 10px var(--blackSemiTransparent); */
   border-radius: var(--outerCorners);
-  background: var(--darkColor);
-  padding: 1.5em;
-  width: calc(var(--mainWidth) - 4em);
+  background: var(--darkestSemiTColor);
+  padding: 1.5em 0px 0px;
+  width: calc(var(--mainWidth) - 3em);
   max-height: 0em;
   overflow: auto;
   user-select: none;
@@ -423,6 +430,21 @@ nav {
   touch-action: pan-x, pan-y;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+}
+
+controls {
+  max-height: 1.5em;
+}
+
+nav {
+  border-radius: var(--outerCorners);
+  background: var(--darkestColor);
+  padding: 1.5em 1em;
+  width: calc(var(--mainWidth) - 5em);
+}
+
+nav.open {
+  border-radius: var(--outerCorners) var(--outerCorners) 0 0;
 }
 
 nav {
@@ -495,20 +517,17 @@ nav h1 span {
   background-position: right 0.9em top 0.5em;
   background-size: 0.9em 0.9em;
   background-repeat: no-repeat;
-  background-color: var(--darkColor);
   padding: 1em 2.2em 1em 1em;
   color: var(--lighterColor);
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: ease-in-out var(--speed) background-image;
-  background-blend-mode: color-dodge;
 }
 
 nav.open h1 span {
   background-image: url(site/images/close_icon2.png);
   background-size: 0.9em 0.9em;
-  background-blend-mode: color-dodge;
 }
 
 body back {
@@ -518,9 +537,9 @@ body back {
   right: 1em;
   justify-content: center;
   align-items: center;
-  transform: translate(0, 0);
+  transform: translate(0, -10px);
   transform-style: preserve-3d;
-  z-index: 3000;
+  z-index: 10000001;
   backface-visibility: hidden;
   cursor: pointer;
   box-shadow: 0px 5px 10px var(--blackSemiTransparent);
@@ -534,6 +553,7 @@ body back {
   text-align: center;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body back::after {
@@ -574,9 +594,9 @@ nav h1 {
 
 control {
   display: block;
-  margin: 0 0 0.25em 0;
+  margin: 0 0 00;
   border-radius: var(--innerCorners);
-  background: var(--mediumDarkColor);
+  background: var(--mediumDarkSemiTColor);
   padding: 1em 1em;
   /* max-width: 18em; */
   color: var(--whiteOpaque);
@@ -584,14 +604,17 @@ control {
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: ease-out var(--speed) all;
+  -webkit-tap-highlight-color: transparent;
 }
 
 controls p:first-of-type {
   margin-top: 0.5em;
+  padding-right: 1em;
+  padding-left: 1em;
 }
 
 controls control:first-of-type {
-  margin-top: 1.75em;
+  margin-top: 1.5em;
 }
 
 controls p:first-of-type+control:first-of-type {
@@ -630,6 +653,7 @@ control button {
   transition: ease-out var(--speed) all;
   cursor: pointer;
   letter-spacing: 2px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 control button:disabled {
@@ -738,7 +762,7 @@ control[type='radio'] {
 }
 
 control[type='radio'].selected {
-  background-color: var(--mediumColor);
+  background-color: var(--mediumSemiTColor);
   max-height: 12.8em;
   overflow: hidden;
 }
@@ -756,7 +780,7 @@ control[type='radio'].selected>label {
 
 control[type='radio'].selected>label {
   background-image: url(site/images/close_icon2.png);
-  background-color: var(--mediumColor);
+  /* background-color: var(--mediumColor); */
 }
 
 control[type='radio']>label {
@@ -764,7 +788,7 @@ control[type='radio']>label {
   background-position: left 2px;
   background-size: 0.9em 0.9em;
   background-repeat: no-repeat;
-  background-color: var(--mediumDarkColor);
+  /* background-color: var(--mediumDarkColor); */
   background-blend-mode: color-dodge;
   padding-left: 1.5em;
 }
@@ -792,7 +816,7 @@ control[type='radio'] control label span {
 
 control[type='radio'].selected control {
   opacity: 1;
-  background-color: var(--mediumColor);
+  background: none;
   pointer-events: all;
 }
 
