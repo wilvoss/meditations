@@ -18,7 +18,8 @@ function touchStart(event) {
 
 function addBlinds(togglenav = true) {
   const adjustment = window.innerWidth / 20;
-  for (let x = 0; x < adjustment; x++) {
+  // adjustment = Math.parse(adjustment + 2);
+  for (let x = 0; x < adjustment + 2; x++) {
     const blind = document.createElement('blind');
     blind.style.left = x * 20 + 'px';
     blind.style.transform = 'rotate3d(0,1,0,' + (tempX / 20 - x) + 'deg) matrix(1, 0, 0, 1, 0, 0)';

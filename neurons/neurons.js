@@ -15,7 +15,7 @@ let r = document.querySelector(':root'),
   useDark = false,
   classes = ['a', 'c', 'd', 'b', 'e'],
   doit,
-  count = 00,
+  count = 0,
   previousNeuron = null,
   currentNeuron = null,
   allLines = [];

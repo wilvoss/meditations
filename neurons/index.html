@@ -38,7 +38,7 @@
     <script src="quote-min.js"></script>
     <script src="../shared.min.js?33"></script>
     <script src="../log.js"></script>
-    <script src="neurons-min.js"></script>
+    <script src="neurons.min.js"></script>
   </head>
 
   <body onpointerdown="pointerDown = true;event.stopPropagation();" onpointerup='pointerDown = false'>
@@ -65,7 +65,7 @@
     <brain></brain>
     <main class="secondary">
       <p>neurons</p>
-      <p class="cta"><a onclick="toggleNav(event, null, true)">OPEN CONTROL PANEL</a></p>
+      <p class="cta"><a onpointerdown="toggleNav(event, null, true)">OPEN CONTROL PANEL</a></p>
     </main>
     <footer>
       <p>

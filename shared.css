@@ -19,7 +19,7 @@
   --primarySaturation: 53%;
   --semiTsaturation: 100%;
   --navOpacity: .6;
-  --lightestColor: hsl(var(--primaryHue), var(--primarySaturation), 75%);
+  --lightestColor: hsl(var(--primaryHue), 100%, 82%);
   --lighterColor: hsl(var(--primaryHue), var(--primarySaturation), 60%);
   --lightColor: hsl(var(--primaryHue), var(--primarySaturation), 50%);
   --mediumLightColor: hsl(var(--primaryHue), var(--primarySaturation), 40%);
@@ -199,8 +199,8 @@ footer p {
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 0em;
-  border: 1px solid var(--mediumColor);
-  border-width: 1px 1px 0px 1px;
+  /* border: 1px solid var(--mediumColor); */
+  /* border-width: 1px 1px 0px 1px; */
   border-radius: var(--outerCorners) var(--outerCorners) 0 0;
   padding-bottom: 0px;
   height: auto;
@@ -243,7 +243,7 @@ footer button {
   margin: 0px;
   outline: none;
   border: none;
-  border-right: 0.1em solid var(--lightColor);
+  border-right: 0.1em solid var(--mediumDarkColor);
   border-radius: 0;
   background: var(--darkestColor);
   padding: 1em 0em 1em;
@@ -479,7 +479,6 @@ controls.open {
   max-height: calc(100% - 9em);
 }
 
-controls p,
 nav h1 {
   margin: 0px;
   padding: 2.5em 0px 1.5em;
@@ -524,13 +523,15 @@ nav h1 span {
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: ease-in-out var(--speed) background-image;
-  background-blend-mode: color-dodge;
+  -webkit-tap-highlight-color: transparent;
+  /* background-blend-mode: color-dodge; */
 }
 
 nav.open h1 span {
   background-image: url(site/images/close_icon2.png);
   background-size: 0.9em 0.9em;
-  background-blend-mode: color-dodge;
+  background-color: var(--darkColor);
+  /* background-blend-mode: color-dodge; */
 }
 
 body back {
@@ -545,7 +546,7 @@ body back {
   z-index: 10000001;
   backface-visibility: hidden;
   cursor: pointer;
-  box-shadow: 0px 5px 10px var(--blackSemiTransparent);
+  box-shadow: 0px 2px 6px var(--blackSemiTransparent);
   border-radius: 50%;
   background: var(--darkColor);
   padding: 1em;
@@ -646,16 +647,14 @@ control button {
   background: none;
   padding: 0px;
   color: var(--lightestColor);
-  font-size: 0.9em;
+  font-size: 1em;
   font-family: 'Dosis', sans-serif;
   user-select: none;
   text-shadow: 0px -1px 0px var(--blackOpaque);
-  text-transform: uppercase;
   -webkit-user-select: none;
   -ms-user-select: none;
   transition: ease-out var(--speed) all;
   cursor: pointer;
-  letter-spacing: 2px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -673,7 +672,7 @@ control button span {
   display: block;
   float: right;
   color: var(--whiteOpaque);
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1em;
   user-select: none;
   text-transform: lowercase;
@@ -708,11 +707,11 @@ input[type='range']:focus {
 }
 
 input[type='range']::-webkit-slider-thumb {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   -webkit-appearance: none;
   cursor: pointer;
-  margin-top: -4px;
+  margin-top: -6px;
   box-shadow: 0px 1px 2px var(--blackOpaque);
   border-radius: 50%;
   background: var(--lightestColor);
@@ -750,7 +749,7 @@ control control.checkbox label {
 }
 
 control.button button {
-  padding: 1em 1em;
+  padding: .75em 1em;
   width: 100%;
   text-align: left;
 }
