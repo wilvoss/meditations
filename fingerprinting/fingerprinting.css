@@ -146,7 +146,7 @@ details[open] summary::after {
 }
 
 aside {
-  margin-bottom: 30px;
+  margin-bottom: calc(30px + env(safe-area-inset-bottom));
   border-radius: var(--borderRadius);
   background-color: var(--lightestColor);
   width: 100%;
@@ -376,7 +376,7 @@ footer {
   }
 
   aside {
-    margin-bottom: 50px;
+    margin-bottom: calc(50px + env(safe-area-inset-bottom));
     height: 100%;
     font-size: .9em;
   }
