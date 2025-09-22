@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta content="x-content-type-options=nosniff" />
+
+    <title>What is Digital Fingerprinting</title>
+
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-transluscent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="keywords"
+      content="Wil Voss, Playground, fingerprinting, Emergence, Will Voss, Seattle, UX, Design Technologist, Designer, and Integrator, C#, Flash, HTML5, XML, xhtml, design, deviner, hybrid, prototyper, front-end web developer" />
+    <meta name="description" content="fingerprinting." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta property="og:title" content="fingerprinting" />
+    <meta property="og:site_name" content="Meditations on Interaction" />
+    <meta property="og:description" content="fingerprinting." />
+    <meta property="og:type" content="photo" />
+    <meta property="og:url" content="http://wilvoss.com/fingerprinting" />
+    <meta property="og:image" content="http://wilvoss.com/site/images/fingerprinting_og.jpg" />
+
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <!-- <link rel="stylesheet" href="../shared.css?41" media="screen" /> -->
+    <link rel="stylesheet" href="fingerprinting.css" media="screen" />
+
+    <!-- <script src="../log.js"></script>
+    <script src="../shared.min.js?41"></script> -->
+    <script src="fingerprinting.js"></script>
+  </head>
+
+  <body class="glass">
+    <details id="fingerprint-details">
+      <summary>
+        <p>Current demo fingerprint: </p>
+        <code id="fingerprint-hash">(computing...)</code>
+      </summary>
+      <div id="fingerprint-expanded">
+        <!-- Detailed explanation written by fingerprinting.js -->
+      </div>
+    </details>
+    <article>
+      <section>
+        <img src="fingerprinting_og.png" alt="Abstract fingerprinting illustrationg" />
+        <h1>What is Digital Fingerprinting?</h1>
+        <p><strong>A digital fingerprint</strong> is a unique identifier created by collecting information about your
+          device and
+          browser.
+        </p>
+
+        <!-- <mobile-hidden> -->
+        <p>Websites can save a fingerprint to recognize your device when you return. If a site keeps
+          this
+          identifier, it <strong>can detect repeat visits</strong> from the same browser. When combined with
+          other
+          data, such as
+          cookies
+          or login
+          information, this allows websites <strong>to track users over time</strong>.</p>
+        <!-- </mobile-hidden> -->
+
+        <p>Third-party code from companies like Meta, Google, or
+          Amazon is often included on websites
+          to
+          analyze traffic and support advertising. They can also save and track digital fingerprints,
+          <strong>even if cookies are blocked
+            or you are using private browsing</strong> .
+        </p>
+
+        </p>
+      </section>
+      <aside id="data-collected">
+        <summary>
+          <p>Below is just a sample of the data a browser can detect. Advertisers, social media, and other websites pick
+            and choose what they think will
+            provide the most stable identifiers.</p>
+        </summary>
+        <div class="details-body">
+          <table id="fingerprinting-table">
+
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </aside>
+    </article>
+
+    <main class="secondary">
+    </main>
+
+  </body>
+
+</html>
