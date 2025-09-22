@@ -329,6 +329,13 @@ mobile-visible {
   }
 }
 
+@media (max-width: 400px) {
+  code {
+    font-size: 1em;
+    word-break: break-all;
+  }
+}
+
 /* Responsive: switch rows to vertical stacking on narrow screens */
 @media (max-width: 720px) {
   article {
