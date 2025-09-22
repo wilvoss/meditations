@@ -402,7 +402,7 @@ mobile-visible {
   }
 
   aside {
-    min-height: calc(100% - 20px - env(safe-area-inset-bottom));
+    min-height: calc(100% - 40px - env(safe-area-inset-bottom));
   }
 
   table thead tr,
