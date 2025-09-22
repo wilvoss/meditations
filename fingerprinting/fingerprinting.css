@@ -53,10 +53,16 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 40px 0 8px 0;
+  margin: 30px 0 8px 0;
   color: var(--lighterColor);
   font-weight: 600;
   line-height: 1.2em;
+}
+
+h3,
+h4,
+h5 {
+  color: white;
 }
 
 h1 {
@@ -65,6 +71,7 @@ h1 {
 
 strong {
   color: var(--codeColor);
+  font-weight: normal;
 }
 
 article {
@@ -74,6 +81,10 @@ article {
   margin-top: 70px;
   border-radius: var(--borderRadius);
   height: calc(100vh - 140px);
+}
+
+article section {
+  height: 100%;
   overflow: auto;
 }
 
@@ -162,6 +173,7 @@ aside {
   border-radius: var(--borderRadius);
   background-color: var(--lightestColor);
   width: 100%;
+  height: 100%;
   color: black;
   font-size: 0.8em;
   line-height: 1.5em;
@@ -185,7 +197,7 @@ table {
 /* Each row is a grid panel so only the row border/outline appears on hover */
 table tbody tr {
   display: grid;
-  grid-template-columns: 30px 166px 1fr;
+  grid-template-columns: 50px 146px 1fr;
   align-items: center;
   gap: 0;
   margin: var(--gap-vertical) 0;
@@ -219,7 +231,15 @@ table tbody td:nth-child(1) {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding: 8px 10px 8px 24px;
   text-align: left;
+}
+
+table tbody td:nth-child(2) {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0px;
 }
 
 /* include-toggle checkbox styling */
@@ -283,13 +303,12 @@ footer {
   display: inline-flex;
   position: fixed;
   bottom: 0;
-  left: 0px;
   justify-content: start;
   align-items: center;
   gap: .5em;
   background-color: var(--backgroundColor);
-  padding: 10px 20px;
-  width: calc(100% - 40px);
+  padding: 10px 0px;
+  width: calc(100% - 0px);
   height: 26px;
   color: var(--lighterColor);
   font-size: .8em;
@@ -332,7 +351,7 @@ footer {
 
   table thead tr,
   table tbody tr {
-    grid-template-columns: 30px 166px 1fr;
+    grid-template-columns: 50px 146px 1fr;
     /* font-size: .9em; */
   }
 
@@ -358,18 +377,23 @@ footer {
     gap: 10px;
   }
 
+  article section {
+    height: auto;
+    overflow: unset;
+  }
+
   aside {
     min-height: calc(100% - 20px);
   }
 
   table thead tr,
   table tbody tr {
-    grid-template-columns: 30px 166px 1fr;
+    grid-template-columns: 50px 146px 1fr;
     /* font-size: .9em; */
   }
 
   table tbody tr td {
-    padding: 8px 20px;
+    padding: 8px 10px;
   }
 
   mobile-hidden {
