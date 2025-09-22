@@ -69,49 +69,52 @@ function AddRowToInfo(left, right, classname) {
   var container = document.getElementsByTagName('fingerprintinginess')[0];
   // attach tooltip when available
 
-  // add weight percentage if available
-  if (typeof DETAILS_MAP !== 'undefined' && DETAILS_MAP[left]) {
-    var weightVal = Number(DETAILS_MAP[left].weight) || 0;
-    tdWeight.setAttribute('role', 'cell');
-    tdWeight.setAttribute('aria-label', 'weight');
+  // Determine weight value if present; default to 0 when missing.
+  var weightVal = 0;
+  try {
+    if (typeof DETAILS_MAP !== 'undefined' && DETAILS_MAP[left]) {
+      weightVal = Number(DETAILS_MAP[left].weight) || 0;
+    }
+  } catch (e) {}
 
-    // Make the weight cell interactive: clicking or pressing Enter/Space toggles the include checkbox.
-    // Provide keyboard focus and ARIA pressed state for accessibility.
-    tdWeight.tabIndex = 0;
-    tdWeight.setAttribute('role', 'button');
+  // Set semantic role and label for the weight cell.
+  tdWeight.setAttribute('role', 'cell');
+  tdWeight.setAttribute('aria-label', 'weight');
+
+  // Make the weight cell interactive in all cases: clicking or pressing Enter/Space toggles the include checkbox.
+  // Provide keyboard focus and ARIA pressed state for accessibility.
+  tdWeight.tabIndex = 0;
+  tdWeight.setAttribute('role', 'button');
+  tdWeight.setAttribute('aria-pressed', includeCheckbox.checked ? 'true' : 'false');
+  tdWeight.classList.add('weight-interactive');
+
+  // visible numeric percent only (no visual bar). Hidden by CSS if undesired.
+  var pctLabel = document.createElement('span');
+  pctLabel.className = 'weight-text';
+  pctLabel.textContent = weightVal + '%';
+  pctLabel.setAttribute('aria-hidden', 'true');
+
+  // append checkbox then weight text
+  tdWeight.appendChild(includeCheckbox);
+  tdWeight.appendChild(pctLabel);
+
+  // Toggle behavior: click or keyboard toggles the checkbox and triggers the centralized toggle handler.
+  tdWeight.addEventListener('click', function (ev) {
+    // If the click originated on the checkbox itself, let its handler run normally.
+    if (ev.target && ev.target.classList && ev.target.classList.contains('include-toggle')) return;
+    // flip checkbox
+    includeCheckbox.checked = !includeCheckbox.checked;
+    // update aria-pressed
     tdWeight.setAttribute('aria-pressed', includeCheckbox.checked ? 'true' : 'false');
-    tdWeight.classList.add('weight-interactive');
-
-    // visible numeric percent only (no visual bar)
-    var pctLabel = document.createElement('span');
-    pctLabel.className = 'weight-text';
-    pctLabel.textContent = weightVal + '%';
-    pctLabel.setAttribute('aria-hidden', 'true');
-
-    // append checkbox then weight text
-    tdWeight.appendChild(includeCheckbox);
-    tdWeight.appendChild(pctLabel);
-    // Toggle behavior: click or keyboard toggles the checkbox and triggers the centralized toggle handler.
-    tdWeight.addEventListener('click', function (ev) {
-      // If the click originated on the checkbox itself, let its handler run normally.
-      if (ev.target && ev.target.classList && ev.target.classList.contains('include-toggle')) return;
-      // flip checkbox
-      includeCheckbox.checked = !includeCheckbox.checked;
-      // update aria-pressed
-      tdWeight.setAttribute('aria-pressed', includeCheckbox.checked ? 'true' : 'false');
-      // call centralized toggle if available
-      if (window.FINGERPRINTING_toggle) window.FINGERPRINTING_toggle(includeCheckbox.dataset.label, includeCheckbox.checked);
-    });
-    tdWeight.addEventListener('keydown', function (ev) {
-      if (ev.key === 'Enter' || ev.key === ' ') {
-        ev.preventDefault();
-        this.click();
-      }
-    });
-  } else {
-    // still append checkbox for consistency when no weight is present
-    tdWeight.appendChild(includeCheckbox);
-  }
+    // call centralized toggle if available
+    if (window.FINGERPRINTING_toggle) window.FINGERPRINTING_toggle(includeCheckbox.dataset.label, includeCheckbox.checked);
+  });
+  tdWeight.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Enter' || ev.key === ' ') {
+      ev.preventDefault();
+      this.click();
+    }
+  });
   // click opens modal with more detail
   // make row keyboard-focusable and open modal on Enter/Space
   tr.tabIndex = 0;
@@ -392,7 +395,7 @@ function getFingerprintinginess() {
   rows.push(['Touch Support', 'ontouchstart' in window ? 'Yes' : 'No']);
   rows.push(['Cookie Enabled', fingerprintinginess.cookieEnabled]);
   rows.push(['Do Not Track', fingerprintinginess.doNotTrack]);
-  rows.push(['Incognito Mode', 'Detecting...']); // Placeholder, async
+  // Incognito Mode removed: detection is unreliable across browsers
   rows.push(['Online', fingerprintinginess.onLine]);
   rows.push(['Referrer', document.referrer || 'N/A']);
   rows.push(['LocalStorage', typeof window.localStorage !== 'undefined' ? 'Yes' : 'No']);
@@ -660,6 +663,7 @@ function getFingerprintinginess() {
         } catch (e) {}
       });
     } catch (e) {}
+    // Incognito detection removed (unreliable across browsers).
   });
 
   // Fetch and display public IP address (async, top) — use AddRowToInfo so tooltip applies
@@ -672,84 +676,7 @@ function getFingerprintinginess() {
       updateRowValue('Public IP Address', 'Unavailable');
     });
 
-  // Incognito/private mode detection (async, replaces placeholder)
-  var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-  if (fs) {
-    try {
-      fs(
-        window.TEMPORARY,
-        100,
-        function () {
-          // filesystem call succeeded -> not incognito (No)
-          try {
-            // record the detection result immediately so it exists even if
-            // the DOM row hasn't been created yet.
-            if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-              fingerprintParts['Incognito Mode'] = 'No';
-            }
-            updateRowValue('Incognito Mode', 'No');
-          } catch (e) {}
-        },
-        function () {
-          // filesystem call failed -> likely incognito (Yes)
-          try {
-            if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-              fingerprintParts['Incognito Mode'] = 'Yes';
-            }
-            updateRowValue('Incognito Mode', 'Yes');
-          } catch (e) {}
-        },
-      );
-    } catch (e) {
-      try {
-        if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-          fingerprintParts['Incognito Mode'] = 'Unknown';
-        }
-        updateRowValue('Incognito Mode', 'Unknown');
-      } catch (e) {}
-    }
-  } else if (navigator.storage && navigator.storage.estimate) {
-    // Fallback heuristic: in some browsers incognito has much smaller storage quota.
-    navigator.storage
-      .estimate()
-      .then(function (est) {
-        try {
-          var q = est && est.quota ? est.quota : 0;
-          // threshold is heuristic; adjust if necessary
-          if (q > 0 && q < 120000000) {
-            if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-              fingerprintParts['Incognito Mode'] = 'Yes';
-            }
-            updateRowValue('Incognito Mode', 'Yes');
-          } else {
-            if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-              fingerprintParts['Incognito Mode'] = 'No';
-            }
-            updateRowValue('Incognito Mode', 'No');
-          }
-        } catch (e) {
-          if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-            fingerprintParts['Incognito Mode'] = 'Unknown';
-          }
-          updateRowValue('Incognito Mode', 'Unknown');
-        }
-      })
-      .catch(function () {
-        try {
-          if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-            fingerprintParts['Incognito Mode'] = 'Unknown';
-          }
-          updateRowValue('Incognito Mode', 'Unknown');
-        } catch (e) {}
-      });
-  } else {
-    try {
-      if (!(DETAILS_MAP['Incognito Mode'] && DETAILS_MAP['Incognito Mode'].weight === 0)) {
-        fingerprintParts['Incognito Mode'] = 'Unknown';
-      }
-      updateRowValue('Incognito Mode', 'Unknown');
-    } catch (e) {}
-  }
+  // Incognito detection code removed.
 
   // Battery info (async, after main rows)
   if (navigator.getBattery) {

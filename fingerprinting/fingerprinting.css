@@ -314,6 +314,14 @@ footer {
   font-size: .8em;
 }
 
+mobile-hidden {
+  display: inline;
+}
+
+mobile-visible {
+  display: none;
+}
+
 @media (max-width: 480px) {
   code {
     font-size: 1.2em;
@@ -335,6 +343,10 @@ footer {
 
   mobile-hidden {
     display: none;
+  }
+
+  mobile-visible {
+    display: inline-block;
   }
 
   table thead {
