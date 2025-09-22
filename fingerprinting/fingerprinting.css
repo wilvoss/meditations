@@ -146,6 +146,7 @@ details[open] summary::after {
 }
 
 aside {
+  margin-bottom: 30px;
   border-radius: var(--borderRadius);
   background-color: var(--lightestColor);
   width: 100%;
@@ -266,6 +267,28 @@ code#fingerprint-hash {
   color: var(--highlightColor);
 }
 
+footer {
+  display: inline-flex;
+  position: fixed;
+  bottom: 0;
+  left: 0px;
+  justify-content: start;
+  align-items: center;
+  gap: .5em;
+  background-color: var(--backgroundSemiTransparentColor);
+  padding: 10px 20px;
+  width: calc(100% - 40px);
+  height: 26px;
+  color: var(--lighterColor);
+  font-size: .8em;
+
+  a {
+    border-bottom: 1px solid var(--lighterColor);
+    color: var(--lighterColor);
+    text-decoration: none;
+  }
+}
+
 @media (max-width: 480px) {
   code {
     font-size: 1.2em;
@@ -353,7 +376,7 @@ code#fingerprint-hash {
   }
 
   aside {
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     height: 100%;
     font-size: .9em;
   }
