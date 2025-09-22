@@ -275,7 +275,7 @@ footer {
   justify-content: start;
   align-items: center;
   gap: .5em;
-  background-color: var(--backgroundSemiTransparentColor);
+  background-color: var(--backgroundColor);
   padding: 10px 20px;
   width: calc(100% - 40px);
   height: 26px;
