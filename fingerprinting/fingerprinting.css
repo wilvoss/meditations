@@ -1,8 +1,8 @@
 :root {
-  --primaryHue: 260;
+  --primaryHue: 280;
   --altHue: 160;
-  --saturation: 70%;
-  --luminosity: 24%;
+  --saturation: 66%;
+  --luminosity: 28%;
   --darkestColor: hsl(var(--primaryHue) var(--saturation) 8%);
   --darkerColor: hsl(var(--primaryHue) var(--saturation) 2%);
   --backgroundColor: hsl(var(--primaryHue) var(--saturation) var(--luminosity));
@@ -23,6 +23,8 @@
 
 /* Page layout */
 html {
+  margin: 0px;
+  padding: 0px;
   width: 100%;
   height: 100%;
 }
@@ -31,6 +33,7 @@ body {
   margin: 0;
   margin-right: auto;
   margin-left: auto;
+  background-image: linear-gradient(transparent 20%, var(--darkerColor) 100%);
   background-color: var(--backgroundColor);
   padding: 20px;
   max-width: 1024px;
@@ -117,7 +120,7 @@ aside {
   padding: 0px;
   width: 100%;
   max-width: 1024px;
-  max-height: calc(100% - 140px);
+  max-height: calc(100% - 20px);
   overflow: auto;
 }
 
@@ -309,10 +312,11 @@ footer {
   display: inline-flex;
   position: fixed;
   bottom: 0;
-  justify-content: start;
+  left: 0;
+  justify-content: center;
   align-items: center;
   gap: .5em;
-  background-color: var(--backgroundColor);
+  background-color: var(--darkerColor);
   padding: 10px 0px;
   width: calc(100% - 0px);
   height: 26px;
