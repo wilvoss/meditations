@@ -319,7 +319,9 @@ function getFingerprintinginess() {
         var explanation =
           '<section class="explain-terms">' +
           '<p>This fingerprint is for demo purposes only and is not shared or saved.' +
-          '<p>The best data for creating a fingerprint comes from unique and stable characteristics of your device and browser. Uniqueness and stability are defined in terms of <strong>volatility</strong> and <strong>entropy</strong>. </p> <p><strong>Volatility</strong> refers to how often a value changes. For example, your public IP address may change when you switch networks. Volatile items are useful for linking short visits but not for long-term device identification.</p> <p><strong>Entropy</strong> measures how much an item helps distinguish devices. High-entropy items (like a detailed canvas fingerprint or a wide variety of installed fonts) make it easier to identify a specific device among many. Low-entropy items (like a common browser name) are less helpful on their own.</p>' +
+          '<p>The best data for fingerprinting comes from unique and stable characteristics of your device and browser. Uniqueness and stability are defined in terms of <strong>volatility</strong> and <strong>entropy</strong>. </p>' +
+          '<p><strong>Volatility:</strong> How often a value changes. Your IP address may shift when switching networks. Volatile data helps link short visits but isn’t reliable for long-term tracking.</p>' +
+          '<p><strong>Entropy:</strong> How well a trait distinguishes devices. High-entropy traits (like canvas fingerprints or font lists) are good for identifying devices. Low-entropy traits (like browser name) are less useful alone.</p>' +
           '</section>';
 
         if (hashEl) {
